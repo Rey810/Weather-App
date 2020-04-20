@@ -1,10 +1,22 @@
+import {
+  name,
+  descr,
+  icon,
+  weathName,
+  feelsLike,
+  humid,
+  press,
+  temp,
+  tempMax,
+  tempMin,
+} from "./DOMelements.js";
+
 // hit the weather api
 const API_KEY = "4341bfb4d351de693ffba36fee82fc49";
-let cityName = "Petoria";
 
 // async/await weather fetch
 // this will return a promise
-async function fetchWeatherAsync() {
+export async function fetchWeatherAsync(cityName) {
   // returns a resolved promise and sets it to response
   const response = await fetch(
     `http://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${API_KEY}`
@@ -16,7 +28,8 @@ async function fetchWeatherAsync() {
   try {
     if (response.ok == true) {
       // returning in an async function is the same as resolving a promise so here it resolves to the responseDetails
-      useData(responseDetails);
+      let weatherObjects = destructureData(responseDetails);
+      populateDOM(weatherObjects);
       return responseDetails;
     } else {
       throw new Error(responseDetails.message);
@@ -28,23 +41,22 @@ async function fetchWeatherAsync() {
   }
 }
 
-// returns a fulfilled promise with either a value of a responseDetails object or Error
-fetchWeatherAsync();
+function destructureData(response) {
+  // the response data is destructured into variables
+  // variables then saved in cityName, weather and temperature objects
 
-function useData(response) {
-  console.log("use data function response", response);
   // city name
   let { name: cityName } = response;
-  console.log("name", cityName);
+
   //weather variables
   let {
     description,
     icon: weatherIcon,
     main: weatherName,
   } = response.weather[0];
-  console.log(response.weather[0]);
-  console.log(description, weatherIcon, weatherName);
-  //temperature variables
+
+  let weatherSummary = { description, weatherIcon, weatherName };
+
   let {
     feels_like,
     humidity,
@@ -53,24 +65,46 @@ function useData(response) {
     temp_max,
     temp_min,
   } = response.main;
-  console.log(feels_like, humidity, pressure, temp, temp_max, temp_min);
+
+  let tempObj = {
+    feels_like,
+    humidity,
+    pressure,
+    temp,
+    temp_max,
+    temp_min,
+  };
+
+  return { cityName, weatherSummary, tempObj };
+}
+
+function populateDOM(weatherObjects) {
+  let { cityName, tempObj, weatherSummary } = weatherObjects;
+  console.log(cityName, tempObj, weatherSummary);
+  // city name
+  name.innerHTML = cityName;
+
+  // weather summary
+  descr.innerHTML = weatherSummary.description;
+  icon.innerHTML = weatherSummary.weatherIcon;
+  weathName.innerHTML = weatherSummary.weatherName;
+
+  // temperature readings
+  feelsLike.innerHTML = tempObj.feels_like;
+  humid.innerHTML = tempObj.humidity;
+  press.innerHTML = tempObj.pressure;
+  temp.innerHTML = tempObj.temp;
+  tempMax.innerHTML = tempObj.temp_max;
+  tempMin.innerHTML = tempObj.temp_min;
 }
 
 function handleError(err) {
   console.log(err);
 }
-//weatherObj = data.weather;
-//console.log("Weather data", weatherObj[0]);
-//tempDataObj = data.main;
-//console.log("Temperature Data Object", tempDataObj);
 
-//// promise weather fetch (without error catching)
-//function fetchWeatherPromise() {
-//  fetch(
-//    `http://api.openweathermap.org/data/2.5/weather?q=$//{cityName}&appid=${API_KEY}`
-//  )
-//    .then((response) => response.json())
-//    .then((data) => console.dir("2", data));
-//}
-//
-//fetchWeatherPromise();
+export function resetData(htmlDivs) {
+  htmlDivs.map((div) => (div.innerHTML = ""));
+}
+
+// returns a fulfilled promise with either a value of a responseDetails object or Error
+//fetchWeatherAsync();
