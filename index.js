@@ -16,10 +16,10 @@ const API_KEY = "4341bfb4d351de693ffba36fee82fc49";
 
 // async/await weather fetch
 // this will return a promise
-export async function fetchWeatherAsync(cityName) {
+export async function fetchWeatherAsync(cityName, units) {
   // returns a resolved promise and sets it to response
   const response = await fetch(
-    `http://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${API_KEY}`
+    `http://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${API_KEY}&units=${units}`
   );
   // responseDetails is declared here so that it can be passed onto useData
   // or inspected for error messages
@@ -44,7 +44,11 @@ export async function fetchWeatherAsync(cityName) {
 function destructureData(response) {
   // the response data is destructured into variables
   // variables then saved in cityName, weather and temperature objects
+  console.log(response);
 
+  // This needs to be manipulated into a human readable format
+  let { dt: unixDate } = response;
+  console.log(unixDate);
   // city name
   let { name: cityName } = response;
 

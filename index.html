@@ -7,18 +7,26 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
+
+<input id="toggle-on" class="toggle toggle-left metric" name="toggle" value="metric" type="radio" checked>
+<label for="toggle-on" class="btn">&deg;C</label>
+<input id="toggle-off" class="toggle toggle-right imperial" name="toggle" value="imperial" type="radio">
+<label for="toggle-off" class="btn">&deg;F</label>
+
+
     <input id="cityNameInput"></input>
     <input id="citySearchButton" type="button" value="Search City"></button>
-    <div class="cityName data"></div>
-    <div class="description data"></div>
-    <div class="weatherIcon data"></div>
-    <div class="weatherName data"></div>
-    <div class="feels_like data"></div>
-    <div class="humidity data"></div>
-    <div class="pressure data"></div>
-    <div class="temp data"></div>
-    <div class="temp_max data"></div>
-    <div class="temp_min data"></div>
+    <h4 class="title">City Name</h4><div class="cityName data"></div>
+    <h4 class="title">Weather Date</h4><div class="weatherDate data"></div>
+    <h4 class="title">Description</h4><div class="description data"></div>
+    <h4 class="title">Icon</h4><div class="weatherIcon data"></div>
+    <h4 class="title">Weather Name</h4><div class="weatherName data"></div>
+    <h4 class="title">Feels Like</h4><div class="feels_like data"></div>
+    <h4 class="title">Humidity</h4><div class="humidity data"></div>
+    <h4 class="title">Pressure</h4><div class="pressure data"></div>
+    <h4 class="title">Temperature</h4><div class="temp data"></div>
+    <h4 class="title">Max Temp</h4><div class="temp_max data"></div>
+    <h4 class="title">Min Temp</h4><div class="temp_min data"></div>
 
     <script type="module" src="index.js"></script>
   </body>
