@@ -1,0 +1,73 @@
+$prim-text-color: rgba(0, 0, 0, 1);
+$sec-Text: rgba(0, 0, 0, 0.85);
+$aux-color: rgba(255, 255, 255, 1);
+$button-color: rgba(0, 0, 255, 1);
+// utility classes
+.stack-children {
+  display: flex;
+  flex-direction: column;
+}
+
+.flex-space-around {
+  justify-content: space-around;
+}
+
+button {
+  padding: 1em;
+  font-weight: 700;
+  border: none;
+  color: $aux-color;
+  background-color: darken($button-color, 10%);
+
+  &:hover {
+    background-color: lighten($button-color, 10%);
+  }
+}
+.input-lrg {
+  padding: 1em 0.5em;
+  font-size: 1em;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+.margin-top-bottom-x2 {
+  margin: 2em 0;
+}
+
+.margin-top-bottom {
+  margin: 1em 0;
+}
+
+.margin-top {
+  margin: 0.5em 0 0 0;
+}
+
+.margin-sides-x2 {
+  margin: 0 2em 0 2em;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.no-margin {
+  margin: 0;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.column {
+  flex-direction: column;
+}
+
+.small-img {
+  transform: scale(0.4);
+}
+
+.sec-Text {
+  color: $sec-Text;
+}
