@@ -4,13 +4,15 @@ import {
   descr,
   icon,
   weathName,
-  feelsLike,
+  //feelsLike,
   humid,
   wind,
-  press,
+  //press,
   temp,
   tempMax,
   tempMin,
+  sunrise,
+  sunset,
 } from "./DOMelements.js";
 
 import menuControl from "./menuControl.js";
@@ -67,7 +69,7 @@ function destructureData(response) {
   } = response.weather[0];
 
   let weatherSummary = { weatherDate, description, weatherIcon, weatherName };
-  console.log(weatherSummary);
+  console.log("weather summary", weatherSummary);
   //destructure response data into temp variables
   let {
     feels_like,
@@ -92,11 +94,15 @@ function destructureData(response) {
     temp_min,
   };
 
-  return { cityName, weatherSummary, tempObj };
+  // sunrise and sunset data
+  let { sunrise: sunriseUnix, sunset: sunsetUnix } = response.sys;
+  let sunInfo = formatTime(sunriseUnix, sunsetUnix);
+
+  return { cityName, weatherSummary, tempObj, sunInfo };
 }
 
 function populateDOM(weatherObjects) {
-  let { cityName, tempObj, weatherSummary } = weatherObjects;
+  let { cityName, tempObj, weatherSummary, sunInfo } = weatherObjects;
   console.log(cityName, tempObj, weatherSummary);
   // city name
   name.innerHTML = cityName;
@@ -108,13 +114,17 @@ function populateDOM(weatherObjects) {
   weathName.innerHTML = weatherSummary.weatherName;
 
   // temperature readings
-  feelsLike.innerHTML = tempObj.feels_like;
+  //.innerHTML = tempObj.feels_like;
   humid.innerHTML = tempObj.humidity;
   wind.innerHTML = tempObj.wind;
-  press.innerHTML = tempObj.pressure;
+  //press.innerHTML = tempObj.pressure;
   temp.innerHTML = tempObj.temp;
-  tempMax.innerHTML = tempObj.temp_max;
-  tempMin.innerHTML = tempObj.temp_min;
+  tempMax.innerHTML = Math.floor(tempObj.temp_max);
+  tempMin.innerHTML = Math.floor(tempObj.temp_min);
+
+  // sun info
+  sunrise.innerHTML = sunInfo.sunrise;
+  sunset.innerHTML = sunInfo.sunset;
 }
 
 function handleError(err) {
@@ -137,6 +147,20 @@ function formatDate(unixDate) {
 
   const finalDate = newDate.toLocaleDateString("en-za", options);
   return finalDate;
+}
+
+function formatTime(sunriseUnix, sunsetUnix) {
+  const options = { hour: "numeric", minute: "numeric" };
+
+  const sunriseMilliseconds = sunriseUnix * 1000;
+  const sunriseTime = new Date(sunriseMilliseconds);
+  const sunrise = sunriseTime.toLocaleTimeString("en-za", options);
+
+  const sunsetMilliseconds = sunsetUnix * 1000;
+  const sunsetTime = new Date(sunsetMilliseconds);
+  const sunset = sunsetTime.toLocaleTimeString("en-za", options);
+  console.log(sunrise, sunset);
+  return { sunrise, sunset };
 }
 
 // returns a fulfilled promise with either a value of a responseDetails object or Error

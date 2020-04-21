@@ -12,10 +12,9 @@
   </head>
   <body>
 
-    <button id="menu" class="menu mobile">Search</button>
 
   <!--MENU-->
-  <section id="menu-overlay" class="visible">
+  <section id="menu-overlay" class="hidden">
       <h1 id="menu-header">Menu</h1>
       <div id="close" class='hover-effect'>
         <i class="far fa-times-circle"></i>
@@ -42,23 +41,52 @@
       </div>
     </section> 
 
+    <section class="hero-container">
+      <h4 class="title">City Name</h4><div class="cityName data"></div>
+      <h4 class="title">Weather Date</h4><div class="weatherDate data"></div>
+      <h4 class="title">Humidity</h4><div class="humidity data"></div>
+      <h4 class="title">Wind</h4><div class="wind data"></div>
+      <h4 class="title">Temperature</h4><div class="temp data"></div>
+      <h4 class="title">Description</h4><div class="description data"></div>
+      <h4 class="title">Icon</h4><div class="weatherIcon data"></div>
+      <h4 class="title">Weather Name</h4><div class="weatherName data"></div>
+      <button id="menu" class="menu mobile">Search</button>
+    </section>
+
+    <section class="footer-container center">
+      <div class="footer-info-container full-width margin-sides-x2">
+        <div class="footer-item center column">
+          <img src="./Images/sunrise.png" alt="Sunrise Icon" class="icon" height="30px" width="30px"> 
+          <h6 class="title margin-top sec-Text">Sunrise</h6>
+          <h4 class="sunrise data">2134</h4>
+        </div>
+        <div class="footer-item center column">
+          <img src="./Images/sunset.png" alt="Sunset icon" class="icon" height="30px" width="30px"> 
+          <h6 class="title margin-top sec-Text">Sunset</h6>
+          <h4 class="sunset data">2134</h4>
+        </div>
+        <div class="footer-item center column">
+          <img src="./Images/high.png" alt="Temp. icon" class="icon" height="25px" width="25px"> 
+          <h6 class="title margin-top temp-title sec-Text">Max</h6>
+          <h4 class="temp_max data">2134</h4>
+        </div>
+        <div class="footer-item center column">
+          <img src="./Images/low.png" alt="Temp. icon" class="icon" height="25px" width="25px"> 
+          <h6 class="title margin-top temp-title sec-Text">Min</h6>
+          <h4 class="temp_min data">2134</h4>
+        </div>
+      </div>
+    </section>
 
 
 
 
-    <h4 class="title">City Name</h4><div class="cityName data"></div>
-    <h4 class="title">Weather Date</h4><div class="weatherDate data"></div>
-    <h4 class="title">Description</h4><div class="description data"></div>
-    <h4 class="title">Icon</h4><div class="weatherIcon data"></div>
-    <h4 class="title">Weather Name</h4><div class="weatherName data"></div>
-    <h4 class="title">Feels Like</h4><div class="feels_like data"></div>
-    <h4 class="title">Humidity</h4><div class="humidity data"></div>
-    <h4 class="title">Pressure</h4><div class="pressure data"></div>
-    <h4 class="title">Wind</h4><div class="wind data"></div>
-    <h4 class="title">Temperature</h4><div class="temp data"></div>
-    <h4 class="title">Max Temp</h4><div class="temp_max data"></div>
-    <h4 class="title">Min Temp</h4><div class="temp_min data"></div>
 
+
+    <!--<h4 class="title">Feels Like</h4><div class="feels_like data"></div>-->
+
+
+<!--Icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon"> www.flaticon.com</a>-->
     <script type="module" src="index.js"></script>
   </body>
 </html>
