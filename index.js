@@ -1,15 +1,21 @@
 import {
   name,
+  date,
   descr,
   icon,
   weathName,
   feelsLike,
   humid,
+  wind,
   press,
   temp,
   tempMax,
   tempMin,
 } from "./DOMelements.js";
+
+import menuControl from "./menuControl.js";
+// add functionality to menu
+menuControl("close", "menu", "menu-overlay");
 
 // hit the weather api
 const API_KEY = "4341bfb4d351de693ffba36fee82fc49";
@@ -46,21 +52,23 @@ function destructureData(response) {
   // variables then saved in cityName, weather and temperature objects
   console.log(response);
 
-  // This needs to be manipulated into a human readable format
+  // unix time stamp from response data
   let { dt: unixDate } = response;
-  console.log(unixDate);
+  let weatherDate = formatDate(unixDate);
+
   // city name
   let { name: cityName } = response;
 
-  //weather variables
+  // destructure response data into weather variables
   let {
     description,
     icon: weatherIcon,
     main: weatherName,
   } = response.weather[0];
 
-  let weatherSummary = { description, weatherIcon, weatherName };
-
+  let weatherSummary = { weatherDate, description, weatherIcon, weatherName };
+  console.log(weatherSummary);
+  //destructure response data into temp variables
   let {
     feels_like,
     humidity,
@@ -70,10 +78,15 @@ function destructureData(response) {
     temp_min,
   } = response.main;
 
+  // wind speed from response data (wind object)
+  let { speed: wind } = response.wind;
+
+  // add temp variables to a tempObj
   let tempObj = {
     feels_like,
     humidity,
     pressure,
+    wind,
     temp,
     temp_max,
     temp_min,
@@ -89,6 +102,7 @@ function populateDOM(weatherObjects) {
   name.innerHTML = cityName;
 
   // weather summary
+  date.innerHTML = weatherSummary.weatherDate;
   descr.innerHTML = weatherSummary.description;
   icon.innerHTML = weatherSummary.weatherIcon;
   weathName.innerHTML = weatherSummary.weatherName;
@@ -96,6 +110,7 @@ function populateDOM(weatherObjects) {
   // temperature readings
   feelsLike.innerHTML = tempObj.feels_like;
   humid.innerHTML = tempObj.humidity;
+  wind.innerHTML = tempObj.wind;
   press.innerHTML = tempObj.pressure;
   temp.innerHTML = tempObj.temp;
   tempMax.innerHTML = tempObj.temp_max;
@@ -108,6 +123,20 @@ function handleError(err) {
 
 export function resetData(htmlDivs) {
   htmlDivs.map((div) => (div.innerHTML = ""));
+}
+
+function formatDate(unixDate) {
+  const milliseconds = unixDate * 1000;
+  const newDate = new Date(milliseconds);
+  const options = {
+    weekday: "long",
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  };
+
+  const finalDate = newDate.toLocaleDateString("en-za", options);
+  return finalDate;
 }
 
 // returns a fulfilled promise with either a value of a responseDetails object or Error

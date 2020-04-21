@@ -5,17 +5,47 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Weather</title>
     <link rel="stylesheet" href="style.css" />
+    <script src="https://kit.fontawesome.com/31038529b5.js" crossorigin="anonymous"></script>
+    <link
+    href="https://fonts.googleapis.com/css?family=Montserrat:100,300,400,700,900
+    rel="stylesheet">
   </head>
   <body>
 
-<input id="toggle-on" class="toggle toggle-left metric" name="toggle" value="metric" type="radio" checked>
-<label for="toggle-on" class="btn">&deg;C</label>
-<input id="toggle-off" class="toggle toggle-right imperial" name="toggle" value="imperial" type="radio">
-<label for="toggle-off" class="btn">&deg;F</label>
+    <button id="menu" class="menu mobile">Search</button>
+
+  <!--MENU-->
+  <section id="menu-overlay" class="visible">
+      <h1 id="menu-header">Menu</h1>
+      <div id="close" class='hover-effect'>
+        <i class="far fa-times-circle"></i>
+      </div>
+
+      <div id="menu-options" class="stack-children flex-space-around">
+        <div class="citySearchContainer stack-children">        
+          <input id="cityNameInput" class= "input-lrg" placeholder="Cape Town"></input>
+          <button id="citySearchButton" class='margin-top-bottom'>SEARCH</button>
+        </div>
+        <div class="unitsSwitchContainer margin-top-bottom-x2">
+          <input id="toggle-on" class="toggle toggle-left metric" name="toggle" value="metric" type="radio" checked>
+          <label for="toggle-on" class="btn">&deg;C</label>
+          <input id="toggle-off" class="toggle toggle-right imperial" name="toggle" value="imperial" type="radio">
+          <label for="toggle-off" class="btn">&deg;F</label>
+        </div>
+      </div>
+
+      <div id="menu-social">
+        <i class="fab fa-twitter"></i>
+        <i class="fab fa-github"></i>
+        <i class="fab fa-instagram"></i>
+        <i class="fab fa-facebook-square"></i>
+      </div>
+    </section> 
 
 
-    <input id="cityNameInput"></input>
-    <input id="citySearchButton" type="button" value="Search City"></button>
+
+
+
     <h4 class="title">City Name</h4><div class="cityName data"></div>
     <h4 class="title">Weather Date</h4><div class="weatherDate data"></div>
     <h4 class="title">Description</h4><div class="description data"></div>
@@ -24,6 +54,7 @@
     <h4 class="title">Feels Like</h4><div class="feels_like data"></div>
     <h4 class="title">Humidity</h4><div class="humidity data"></div>
     <h4 class="title">Pressure</h4><div class="pressure data"></div>
+    <h4 class="title">Wind</h4><div class="wind data"></div>
     <h4 class="title">Temperature</h4><div class="temp data"></div>
     <h4 class="title">Max Temp</h4><div class="temp_max data"></div>
     <h4 class="title">Min Temp</h4><div class="temp_min data"></div>

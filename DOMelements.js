@@ -46,12 +46,14 @@ function switchUnits(e) {
 }
 
 export let name = document.querySelector(".cityName");
+export let date = document.querySelector(".weatherDate");
 export let descr = document.querySelector(".description");
 export let icon = document.querySelector(".weatherIcon");
 export let weathName = document.querySelector(".weatherName");
 export let feelsLike = document.querySelector(".feels_like");
 export let humid = document.querySelector(".humidity");
 export let press = document.querySelector(".pressure");
+export let wind = document.querySelector(".wind");
 export let temp = document.querySelector(".temp");
 export let tempMax = document.querySelector(".temp_max");
 export let tempMin = document.querySelector(".temp_min");
