@@ -1,9 +1,10 @@
 import {
   name,
+  country,
   date,
   descr,
   icon,
-  weathName,
+  //weathName,
   //feelsLike,
   humid,
   wind,
@@ -13,14 +14,40 @@ import {
   tempMin,
   sunrise,
   sunset,
+  hero,
 } from "./DOMelements.js";
 
+import { colors } from "./colors.js";
+
+import getCountryCode from "./countryCode.js";
 import menuControl from "./menuControl.js";
 // add functionality to menu
 menuControl("close", "menu", "menu-overlay");
 
 // hit the weather api
 const API_KEY = "4341bfb4d351de693ffba36fee82fc49";
+const flickr_API_KEY = "1951625a765ba51695f0fe80993edb42";
+
+export async function fetchFlickrPhoto(cityName) {
+  try {
+    const responseData = await fetch(
+      `https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=1951625a765ba51695f0fe80993edb42&tags=&text=${cityName}+sky&&sort=interestingness-desc&safe_search=1&content_type=1&media=photos&per_page=1&page=1&format=json&nojsoncallback=1`
+    );
+    if (responseData.ok == true) {
+      const jsonData = await responseData.json();
+      const photoData = jsonData.photos.photo[0];
+      const imageUrl = `https://farm${photoData.farm}.staticflickr.com/${photoData.server}/${photoData.id}_${photoData.secret}_z.png`;
+      console.log(imageUrl);
+      setBackgroundImage(imageUrl);
+      return imageUrl;
+    } else {
+      console.log(responseData);
+      throw new Error(responseData);
+    }
+  } catch (error) {
+    console.log("Image fetch error", error);
+  }
+}
 
 // async/await weather fetch
 // this will return a promise
@@ -36,7 +63,7 @@ export async function fetchWeatherAsync(cityName, units) {
   try {
     if (response.ok == true) {
       // returning in an async function is the same as resolving a promise so here it resolves to the responseDetails
-      let weatherObjects = destructureData(responseDetails);
+      let weatherObjects = await destructureData(responseDetails);
       populateDOM(weatherObjects);
       return responseDetails;
     } else {
@@ -58,8 +85,11 @@ function destructureData(response) {
   let { dt: unixDate } = response;
   let weatherDate = formatDate(unixDate);
 
-  // city name
+  // city and country
   let { name: cityName } = response;
+  let { country: countryCode } = response.sys;
+  let countryName = getCountryCode(countryCode);
+  console.log("country", country);
 
   // destructure response data into weather variables
   let {
@@ -98,29 +128,46 @@ function destructureData(response) {
   let { sunrise: sunriseUnix, sunset: sunsetUnix } = response.sys;
   let sunInfo = formatTime(sunriseUnix, sunsetUnix);
 
-  return { cityName, weatherSummary, tempObj, sunInfo };
+  return { cityName, countryName, weatherSummary, tempObj, sunInfo };
 }
 
 function populateDOM(weatherObjects) {
-  let { cityName, tempObj, weatherSummary, sunInfo } = weatherObjects;
+  let {
+    cityName,
+    countryName,
+    tempObj,
+    weatherSummary,
+    sunInfo,
+  } = weatherObjects;
   console.log(cityName, tempObj, weatherSummary);
   // city name
   name.innerHTML = cityName;
+  try {
+    console.log(typeof countryName);
+    country.innerHTML = countryName;
+  } catch (err) {
+    console.log(err);
+  }
+
+  // set background-colour according to weather name
+  hero.style.backgroundColor = colors[weatherSummary.weatherName];
 
   // weather summary
   date.innerHTML = weatherSummary.weatherDate;
-  descr.innerHTML = weatherSummary.description;
-  icon.innerHTML = weatherSummary.weatherIcon;
-  weathName.innerHTML = weatherSummary.weatherName;
+  descr.innerHTML = weatherSummary.weatherName;
+
+  let darkIcon = darkenIcon(weatherSummary.weatherIcon);
+  icon.src = `http://openweathermap.org/img/wn/${darkIcon}.png`;
+  //weathName.innerHTML = weatherSummary.weatherName;
 
   // temperature readings
   //.innerHTML = tempObj.feels_like;
-  humid.innerHTML = tempObj.humidity;
-  wind.innerHTML = tempObj.wind;
+  humid.innerHTML = `${tempObj.humidity} %`;
+  wind.innerHTML = `${tempObj.wind} km/h`;
   //press.innerHTML = tempObj.pressure;
-  temp.innerHTML = tempObj.temp;
-  tempMax.innerHTML = Math.floor(tempObj.temp_max);
-  tempMin.innerHTML = Math.floor(tempObj.temp_min);
+  temp.innerHTML = `${Math.floor(tempObj.temp)}&deg;`;
+  tempMax.innerHTML = `${Math.floor(tempObj.temp_max)}&deg;`;
+  tempMin.innerHTML = `${Math.floor(tempObj.temp_min)}&deg;`;
 
   // sun info
   sunrise.innerHTML = sunInfo.sunrise;
@@ -129,6 +176,12 @@ function populateDOM(weatherObjects) {
 
 function handleError(err) {
   console.log(err);
+}
+
+function darkenIcon(iconCode) {
+  const icon = iconCode;
+  const darkenedIcon = icon.replace("d", "n");
+  return darkenedIcon;
 }
 
 export function resetData(htmlDivs) {
@@ -161,6 +214,11 @@ function formatTime(sunriseUnix, sunsetUnix) {
   const sunset = sunsetTime.toLocaleTimeString("en-za", options);
   console.log(sunrise, sunset);
   return { sunrise, sunset };
+}
+
+function setBackgroundImage(url) {
+  hero.style.backgroundImage = "none";
+  hero.style.backgroundImage = `url(${url})`;
 }
 
 // returns a fulfilled promise with either a value of a responseDetails object or Error

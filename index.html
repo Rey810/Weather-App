@@ -42,51 +42,61 @@
     </section> 
 
     <section class="hero-container">
-      <div class="summary">
+      <div class="summary margin-top-x3">
         <header>
-          <h4 class="cityName data">Cape Town</h4>
-          <h4 class="weatherDate data">Monday, 20th April</h4>
+          <div class="location center-row margin-top-x3 main-color upcase">
+            <h4 class="cityName data no-margin">Cape Town</h4>
+            <h4 class="country data no-margin light-font">South Africa</h4>
+          </div>
+          <h5 class="weatherDate data margin-top center light-font sec-color">Monday, 20th April</h5>
         </header>
-
-        <div class="big-temp-display">
-          <div class="temp data">20&deg;</div>
+        <div class="date">
+        </div>
+        <div class="big-temp-display center margin-left-x2">
+          <div class="temp data text-xxlrg main-color xtra-light-font">20&deg;</div>
         </div>
 
-        <div class="summary-details">
-          <h4 class="humidity data">50%</h4>
-          <div class="wind data">4 km/h</div>
-          <div class="weatherIcon data"></div>
-          <div class="weatherName data">Sunny</div>
+        <div class="summary-details stack-children center-vertical margin-left">
+          <div class="description-container grid-col-2">
+            <img src="http://openweathermap.org/img/wn/01n.png" alt="Weather Image" class="weather-icon center-row image-white-filter" height="25px" width="25px"><h4 class="description data no-margin center-left sec-color light-font">Sunny</h4>
+          </div>
+          <div class="wind-container margin-top grid-col-2">
+            <i class="fas fa-wind icon"></i><h4 class="wind data  no-margin center-left sec-color light-font" >4 km/h</h4>
+          </div>
+          <div class="humidity-container margin-top grid-col-2">
+            <i class="fas fa-tint icon"></i><h4 class="humidity data no-margin center-left sec-color light-font">50%</h4>
+          </div>
         </div>
         
       </div>
 
-      <button id="menu" class="menu mobile">Search</button>
+      
     </section>
 
     <section class="footer-container center">
-      <div class="footer-info-container full-width margin-sides-x2">
+      <div class="footer-info-container full-width margin-sides-x2 sec-dark-color margin-bottom-x4">
         <div class="footer-item center column">
           <img src="./Images/sunrise.png" alt="Sunrise Icon" class="icon" height="30px" width="30px"> 
-          <h6 class="title margin-top sec-Text">Sunrise</h6>
-          <h4 class="sunrise data">2134</h4>
+          <h6 class="title margin-top-x1-25 sec-dark-color shift-left">Sunrise</h6>
+          <h5 class="shift-left margin-top-x2 sunrise data">2134</h5>
         </div>
         <div class="footer-item center column">
           <img src="./Images/sunset.png" alt="Sunset icon" class="icon" height="30px" width="30px"> 
-          <h6 class="title margin-top sec-Text">Sunset</h6>
-          <h4 class="sunset data">2134</h4>
+          <h6 class="title margin-top-x1-25 sec-dark-color shift-left">Sunset</h6>
+          <h5 class="shift-left margin-top-x2 sunset data">2134</h5>
         </div>
         <div class="footer-item center column">
-          <img src="./Images/high.png" alt="Temp. icon" class="icon" height="25px" width="25px"> 
-          <h6 class="title margin-top temp-title sec-Text">Max</h6>
-          <h4 class="temp_max data">2134</h4>
+          <img src="./Images/high.png" alt="Temp. icon" class="icon temp-icon" height="30px" width="30px"> 
+          <h6 class="title margin-top-x1-25 temp-title sec-dark-color">Max</h6>
+          <h5 class="shift-left margin-top-x2 temp_max data">2134</h5>
         </div>
         <div class="footer-item center column">
-          <img src="./Images/low.png" alt="Temp. icon" class="icon" height="25px" width="25px"> 
-          <h6 class="title margin-top temp-title sec-Text">Min</h6>
-          <h4 class="temp_min data">2134</h4>
+          <img src="./Images/low.png" alt="Temp. icon" class="icon temp-icon" height="30px" width="30px"> 
+          <h6 class="title margin-top-x1-25 temp-title sec-dark-color">Min</h6>
+          <h5 class="shift-left margin-top-x2 temp_min data">2134</h5>
         </div>
       </div>
+      <button id="menu" class="menu mobile margin-bottom-x2">Search</button>
     </section>
 
 

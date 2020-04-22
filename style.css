@@ -18,11 +18,11 @@ button {
   font-weight: 700;
   border: none;
   color: white;
-  background-color: #0000cc;
+  background-color: black;
 }
 
 button:hover {
-  background-color: #3333ff;
+  background-color: #1a1a1a;
 }
 
 .input-lrg {
@@ -41,11 +41,44 @@ button:hover {
 }
 
 .margin-top {
-  margin: 0.5em 0 0 0;
+  margin-top: 0.5em;
+}
+
+.margin-top-x1-25 {
+  margin-top: 0.75em;
+}
+
+.margin-top-x2 {
+  margin-top: 1em;
+}
+
+.margin-top-x3 {
+  margin-top: 1.5em;
+}
+
+.margin-bottom {
+  margin-bottom: 0.5em;
+}
+
+.margin-bottom-x2 {
+  margin-bottom: 1em;
+}
+
+.margin-bottom-x4 {
+  margin-bottom: 2em;
 }
 
 .margin-sides-x2 {
-  margin: 0 2em 0 2em;
+  margin-left: 2em;
+  margin-right: 2em;
+}
+
+.margin-left {
+  margin-left: 1em;
+}
+
+.margin-left-x2 {
+  margin-left: 2em;
 }
 
 .full-width {
@@ -68,11 +101,65 @@ button:hover {
           align-items: center;
 }
 
+.center-vertical {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.center-left {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: left;
+      -ms-flex-pack: left;
+          justify-content: left;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
 .column {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+}
+
+.row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+.center-row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.grid-col-2 {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 35px auto;
+      grid-template-columns: 35px auto;
 }
 
 .small-img {
@@ -80,14 +167,58 @@ button:hover {
           transform: scale(0.4);
 }
 
-.sec-Text {
-  color: rgba(0, 0, 0, 0.85);
+.main-color {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.sec-color {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.sec-dark-color {
+  color: rgba(0, 0, 0, 0.75);
+}
+
+.text-lrg {
+  font-size: 2em;
+}
+
+.text-xlrg {
+  font-size: 4em;
+}
+
+.text-xxlrg {
+  font-size: 6em;
+}
+
+.light-font {
+  font-weight: 400;
+}
+
+.xtra-light-font {
+  font-weight: 300;
+}
+
+.upcase {
+  text-transform: uppercase;
+}
+
+.shift-left {
+  left: -6px;
+  position: relative;
 }
 
 #menu {
   z-index: 2;
   position: fixed;
   bottom: 0;
+  width: 30%;
+  padding: 1em;
+  background-color: rgba(71, 70, 70, 0.859);
+}
+
+#menu:hover {
+  background-color: rgba(45, 45, 45, 0.859);
 }
 
 #menu-overlay {
@@ -253,6 +384,10 @@ body {
       grid-template-rows: 3fr 1fr;
 }
 
+h6 {
+  margin: 0;
+}
+
 .hero-container {
   -ms-grid-row: 1;
   grid-row: 1;
@@ -261,6 +396,10 @@ body {
   height: 100%;
   -ms-grid-rows: 1fr 1fr;
       grid-template-rows: 1fr 1fr;
+  background-color: rgba(255, 159, 104, 0.75);
+  background-image: url(./Images/cape-town-900.png);
+  background-size: cover;
+  background-blend-mode: color-burn;
 }
 
 .summary {
@@ -270,8 +409,8 @@ body {
   display: grid;
   -ms-grid-columns: 1fr 1fr;
       grid-template-columns: 1fr 1fr;
-  -ms-grid-rows: 1fr 1fr;
-      grid-template-rows: 1fr 1fr;
+  -ms-grid-rows: auto 1fr;
+      grid-template-rows: auto 1fr;
 }
 
 header {
@@ -280,6 +419,10 @@ header {
   -ms-grid-column: 1;
   -ms-grid-column-span: 2;
   grid-column: 1/3;
+}
+
+.cityName {
+  padding-right: 0.3em;
 }
 
 .big-temp-display {
@@ -296,6 +439,18 @@ header {
   grid-row: 2;
 }
 
+.icon {
+  text-align: center;
+  left: -6px;
+  position: relative;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.image-white-filter {
+  -webkit-filter: invert(100%) contrast(3);
+          filter: invert(100%) contrast(3);
+}
+
 .footer-container {
   -ms-grid-row: 2;
   grid-row: 2;
@@ -309,8 +464,12 @@ header {
 }
 
 .temp-title {
-  top: 2px;
-  left: -3px;
+  left: -8px;
   position: relative;
+}
+
+.temp-icon {
+  -webkit-transform: scale(0.8);
+          transform: scale(0.8);
 }
 /*# sourceMappingURL=style.css.map */

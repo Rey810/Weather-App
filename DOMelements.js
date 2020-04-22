@@ -1,4 +1,4 @@
-import { fetchWeatherAsync } from "./index.js";
+import { fetchWeatherAsync, fetchFlickrPhoto } from "./index.js";
 import { resetData } from "./index.js";
 
 // search button and array of divs with data
@@ -13,6 +13,9 @@ button.addEventListener("click", () => {
   resetData(dataDivs);
   // fetches the weather data
   fetchWeatherAsync(searchQuery, units);
+  // fetches the city photo
+  fetchFlickrPhoto(searchQuery);
+  menuToggle("menu-overlay");
 });
 
 // celcius
@@ -40,15 +43,25 @@ function switchUnits(e) {
   console.log(e.target.value);
   let searchQuery = document.querySelector("#cityNameInput").value;
   let units = e.target.value;
-  resetData(dataDivs);
-  fetchWeatherAsync(searchQuery, units);
-  // run the query again
+  if (searchQuery !== "") {
+    resetData(dataDivs);
+    fetchWeatherAsync(searchQuery, units);
+    // run the query again
+  }
+}
+
+function menuToggle(menuID) {
+  console.info("Inside closeMenu");
+  const menu = document.querySelector(`#${menuID}`);
+  menu.classList.toggle("visible");
+  menu.classList.toggle("hidden");
 }
 
 export let name = document.querySelector(".cityName");
+export let country = document.querySelector(".country");
 export let date = document.querySelector(".weatherDate");
 export let descr = document.querySelector(".description");
-export let icon = document.querySelector(".weatherIcon");
+export let icon = document.querySelector(".weather-icon");
 export let weathName = document.querySelector(".weatherName");
 export let feelsLike = document.querySelector(".feels_like");
 export let humid = document.querySelector(".humidity");
@@ -59,3 +72,6 @@ export let tempMax = document.querySelector(".temp_max");
 export let tempMin = document.querySelector(".temp_min");
 export let sunrise = document.querySelector(".sunrise");
 export let sunset = document.querySelector(".sunset");
+
+// hero container
+export let hero = document.querySelector(".hero-container");
