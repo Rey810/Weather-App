@@ -1,4 +1,5 @@
 @import "./util.scss";
+@import "colors";
 /////////////////
 //////menu//////
 ///////////////
@@ -7,6 +8,12 @@
   z-index: 2;
   position: fixed;
   bottom: 0;
+  width: 30%;
+  padding: 1em;
+  background-color: $search-color;
+  &:hover {
+    background-color: darken($search-color, 10%);
+  }
 }
 
 #menu-overlay {
@@ -17,7 +24,7 @@
   width: 100vw;
   height: 100%;
   display: grid;
-  color: $prim-text-color;
+  color: $dark-color;
   text-align: center;
   grid-template-areas:
     "... menuHeader menuHeader menuClose"
@@ -54,7 +61,7 @@
   }
   i {
     font-size: 1.6em;
-    color: $prim-text-color;
+    color: $dark-color;
   }
 }
 
