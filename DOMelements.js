@@ -1,16 +1,14 @@
 import { fetchWeatherAsync, fetchFlickrPhoto } from "./index.js";
-import { resetData } from "./index.js";
 
 // search button and array of divs with data
 let button = document.querySelector("#citySearchButton");
-let dataDivs = [...document.querySelectorAll(".data")];
+export let dataDivs = [...document.querySelectorAll(".data")];
 
 // adds search button event handler
 button.addEventListener("click", () => {
   let searchQuery = document.querySelector("#cityNameInput").value;
   let units = getUnit();
-  // empties the innerHTML of the data divs
-  resetData(dataDivs);
+
   // fetches the weather data
   fetchWeatherAsync(searchQuery, units);
   // fetches the city photo

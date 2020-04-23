@@ -22,7 +22,7 @@ button {
 }
 
 button:hover {
-  background-color: #1a1a1a;
+  background-color: #333333;
 }
 
 .input-lrg {
@@ -175,8 +175,16 @@ button:hover {
   color: rgba(255, 255, 255, 0.85);
 }
 
+.dark-color {
+  color: rgba(0, 0, 0, 0.8);
+}
+
 .sec-dark-color {
-  color: rgba(0, 0, 0, 0.75);
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.text-normal {
+  font-size: 1em;
 }
 
 .text-lrg {
@@ -193,6 +201,10 @@ button:hover {
 
 .light-font {
   font-weight: 400;
+}
+
+.medium-font {
+  font-weight: 500;
 }
 
 .xtra-light-font {

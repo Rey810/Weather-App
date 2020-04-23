@@ -22,7 +22,7 @@ button {
 }
 
 button:hover {
-  background-color: #1a1a1a;
+  background-color: #333333;
 }
 
 .input-lrg {
@@ -175,8 +175,16 @@ button:hover {
   color: rgba(255, 255, 255, 0.85);
 }
 
+.dark-color {
+  color: rgba(0, 0, 0, 0.8);
+}
+
 .sec-dark-color {
-  color: rgba(0, 0, 0, 0.75);
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.text-normal {
+  font-size: 1em;
 }
 
 .text-lrg {
@@ -193,6 +201,10 @@ button:hover {
 
 .light-font {
   font-weight: 400;
+}
+
+.medium-font {
+  font-weight: 500;
 }
 
 .xtra-light-font {
@@ -212,13 +224,15 @@ button:hover {
   z-index: 2;
   position: fixed;
   bottom: 0;
-  width: 30%;
+  width: 50%;
+  border-radius: 2em;
   padding: 1em;
-  background-color: rgba(71, 70, 70, 0.859);
+  background-color: rgba(45, 45, 45, 0.859);
+  cursor: pointer;
 }
 
 #menu:hover {
-  background-color: rgba(45, 45, 45, 0.859);
+  background-color: rgba(97, 95, 95, 0.859);
 }
 
 #menu-overlay {
@@ -231,7 +245,7 @@ button:hover {
   height: 100%;
   display: -ms-grid;
   display: grid;
-  color: black;
+  color: rgba(0, 0, 0, 0.8);
   text-align: center;
       grid-template-areas: "... menuHeader menuHeader menuClose" "... menuOptions menuOptions ..." "... menuOptions menuOptions ..." "... menuOptions menuOptions ..." "... menuSocial menuSocial ...";
   -ms-grid-columns: 1fr auto auto 1fr;
@@ -286,7 +300,7 @@ button:hover {
 
 #menu-overlay i {
   font-size: 1.6em;
-  color: black;
+  color: rgba(0, 0, 0, 0.8);
 }
 
 .visible {
@@ -380,8 +394,8 @@ body {
   width: auto;
   margin: 0;
   height: 100vh;
-  -ms-grid-rows: 3fr 1fr;
-      grid-template-rows: 3fr 1fr;
+  -ms-grid-rows: 5fr 2fr;
+      grid-template-rows: 5fr 2fr;
 }
 
 h6 {
@@ -461,6 +475,10 @@ header {
   display: grid;
   -ms-grid-columns: (1fr)[4];
       grid-template-columns: repeat(4, 1fr);
+}
+
+.footer-info-container img {
+  opacity: 75%;
 }
 
 .temp-title {

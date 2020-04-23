@@ -11,7 +11,7 @@ body {
   width: auto;
   margin: 0;
   height: 100vh;
-  grid-template-rows: 3fr 1fr;
+  grid-template-rows: 5fr 2fr;
 }
 
 h6 {
@@ -73,6 +73,9 @@ header {
 .footer-info-container {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
+  img {
+    opacity: 75%;
+  }
 }
 
 .temp-title {

@@ -8,11 +8,13 @@
   z-index: 2;
   position: fixed;
   bottom: 0;
-  width: 30%;
+  width: 50%;
+  border-radius: 2em;
   padding: 1em;
-  background-color: $search-color;
+  background-color: darken($search-color, 10%);
+  cursor: pointer;
   &:hover {
-    background-color: darken($search-color, 10%);
+    background-color: lighten($search-color, 10%);
   }
 }
 

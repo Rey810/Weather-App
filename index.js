@@ -15,6 +15,7 @@ import {
   sunrise,
   sunset,
   hero,
+  dataDivs,
 } from "./DOMelements.js";
 
 import { colors } from "./colors.js";
@@ -31,7 +32,7 @@ const flickr_API_KEY = "1951625a765ba51695f0fe80993edb42";
 export async function fetchFlickrPhoto(cityName) {
   try {
     const responseData = await fetch(
-      `https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=1951625a765ba51695f0fe80993edb42&tags=&text=${cityName}+sky&&sort=interestingness-desc&safe_search=1&content_type=1&media=photos&per_page=1&page=1&format=json&nojsoncallback=1`
+      `https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=1951625a765ba51695f0fe80993edb42&tags=&text=${cityName}+sky+building&&sort=interestingness-desc&safe_search=1&content_type=1&media=photos&per_page=1&page=1&format=json&nojsoncallback=1`
     );
     if (responseData.ok == true) {
       const jsonData = await responseData.json();
@@ -64,6 +65,8 @@ export async function fetchWeatherAsync(cityName, units) {
     if (response.ok == true) {
       // returning in an async function is the same as resolving a promise so here it resolves to the responseDetails
       let weatherObjects = await destructureData(responseDetails);
+      // empties the innerHTML of the data divs
+      resetData(dataDivs);
       populateDOM(weatherObjects);
       return responseDetails;
     } else {
@@ -176,6 +179,7 @@ function populateDOM(weatherObjects) {
 
 function handleError(err) {
   console.log(err);
+  alert("City not found");
 }
 
 function darkenIcon(iconCode) {

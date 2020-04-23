@@ -17,7 +17,7 @@ button {
   background-color: darken($button-color, 10%);
 
   &:hover {
-    background-color: lighten($button-color, 10%);
+    background-color: lighten($button-color, 20%);
   }
 }
 .input-lrg {
@@ -133,8 +133,16 @@ button {
   color: $sec-color;
 }
 
+.dark-color {
+  color: $dark-color;
+}
+
 .sec-dark-color {
   color: $sec-dark-color;
+}
+
+.text-normal {
+  font-size: 1em;
 }
 
 .text-lrg {
@@ -151,6 +159,10 @@ button {
 
 .light-font {
   font-weight: 400;
+}
+
+.medium-font {
+  font-weight: 500;
 }
 
 .xtra-light-font {
