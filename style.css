@@ -220,6 +220,22 @@ button:hover {
   position: relative;
 }
 
+.no-overflow-x {
+  overflow-x: hidden;
+}
+
+.side-auto-margin {
+  margin: 0 auto;
+}
+
+.block {
+  display: block;
+}
+
+.auto-width {
+  width: auto;
+}
+
 #menu {
   z-index: 2;
   position: fixed;
@@ -410,10 +426,29 @@ h6 {
   height: 100%;
   -ms-grid-rows: 1fr 1fr;
       grid-template-rows: 1fr 1fr;
-  background-color: rgba(255, 159, 104, 0.75);
+  background-color: rgba(255, 217, 26, 0.769);
+  background-blend-mode: soft-light;
+}
+
+.hero-container .temp,
+.hero-container h4,
+.hero-container h5,
+.hero-container h6,
+.hero-container i {
+  -webkit-filter: drop-shadow(3px 2px 3px black);
+          filter: drop-shadow(3px 2px 3px black);
+}
+
+.hero-img-container {
+  position: absolute;
+  z-index: -1;
+  height: 100%;
+  width: 100%;
   background-image: url(./Images/cape-town-900.png);
   background-size: cover;
-  background-blend-mode: color-burn;
+  background-position: center;
+  -webkit-filter: grayscale(100);
+          filter: grayscale(100);
 }
 
 .summary {
@@ -460,14 +495,15 @@ header {
   color: rgba(255, 255, 255, 0.9);
 }
 
-.image-white-filter {
-  -webkit-filter: invert(100%) contrast(3);
-          filter: invert(100%) contrast(3);
+.image-white-filter-shadow {
+  -webkit-filter: invert(100%) contrast(3) drop-shadow(3px 2px 3px black);
+          filter: invert(100%) contrast(3) drop-shadow(3px 2px 3px black);
 }
 
 .footer-container {
   -ms-grid-row: 2;
   grid-row: 2;
+  background-color: white;
 }
 
 .footer-info-container {

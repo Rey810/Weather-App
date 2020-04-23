@@ -23,10 +23,28 @@ h6 {
   display: grid;
   height: 100%;
   grid-template-rows: 1fr 1fr;
-  background-color: rgba(255, 159, 104, 0.75);
+  background-color: hsla(50, 100%, 55%, 0.769);
+  //background-image: url(./Images/cape-town-900.png);
+  //@warn: cover;
+  background-blend-mode: soft-light;
+  .temp,
+  h4,
+  h5,
+  h6,
+  i {
+    filter: drop-shadow(3px 2px 3px black);
+  }
+}
+
+.hero-img-container {
+  position: absolute;
+  z-index: -1;
+  height: 100%;
+  width: 100%;
   background-image: url(./Images/cape-town-900.png);
   background-size: cover;
-  background-blend-mode: color-burn;
+  background-position: center;
+  filter: grayscale(100);
 }
 
 .summary {
@@ -62,12 +80,13 @@ header {
   color: $main-color;
 }
 
-.image-white-filter {
-  filter: invert(100%) contrast(3);
+.image-white-filter-shadow {
+  filter: invert(100%) contrast(3) drop-shadow(3px 2px 3px black);
 }
 
 .footer-container {
   grid-row: 2;
+  background-color: $aux-color;
 }
 
 .footer-info-container {

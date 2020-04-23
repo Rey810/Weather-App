@@ -73,3 +73,4 @@ export let sunset = document.querySelector(".sunset");
 
 // hero container
 export let hero = document.querySelector(".hero-container");
+export let heroImgContainer = document.querySelector(".hero-img-container");

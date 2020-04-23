@@ -15,6 +15,7 @@ import {
   sunrise,
   sunset,
   hero,
+  heroImgContainer,
   dataDivs,
 } from "./DOMelements.js";
 
@@ -28,30 +29,44 @@ menuControl("close", "menu", "menu-overlay");
 // hit the weather api
 const API_KEY = "4341bfb4d351de693ffba36fee82fc49";
 const flickr_API_KEY = "1951625a765ba51695f0fe80993edb42";
+const maps_API_KEY = "AIzaSyBYmeOWR_Gvy96W2I1YjV4siZAwb2yub3s";
 
 export async function fetchFlickrPhoto(cityName) {
   try {
     const responseData = await fetch(
-      `https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=1951625a765ba51695f0fe80993edb42&tags=&text=${cityName}+sky+building&&sort=interestingness-desc&safe_search=1&content_type=1&media=photos&per_page=1&page=1&format=json&nojsoncallback=1`
+      `https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=${flickr_API_KEY}&tags=${cityName},iconic&tag_mode=all&sort=interestingness-desc&safe_search=1&content_type=1&media=photos&per_page=10&page=1&format=json&nojsoncallback=1`
     );
-    if (responseData.ok == true) {
-      const jsonData = await responseData.json();
-      const photoData = jsonData.photos.photo[0];
-      const imageUrl = `https://farm${photoData.farm}.staticflickr.com/${photoData.server}/${photoData.id}_${photoData.secret}_z.png`;
-      console.log(imageUrl);
+    const jsonData = await responseData.json();
+    if (responseData.ok == true && jsonData.stat != "fail") {
+      const photoArrayLength = jsonData.photos.photo.length;
+      const photoData = jsonData.photos.photo[randomNumber(photoArrayLength)];
+      const imageUrl = `https://farm${photoData.farm}.staticflickr.com/${photoData.server}/${photoData.id}_${photoData.secret}_z.jpg`;
+      console.log("image url", imageUrl);
       setBackgroundImage(imageUrl);
       return imageUrl;
     } else {
-      console.log(responseData);
-      throw new Error(responseData);
+      throw new Error(responseDetails.message);
     }
   } catch (error) {
     console.log("Image fetch error", error);
+    removeBgPhoto();
   }
+}
+
+function randomNumber(length) {
+  return Math.floor(Math.random() * Math.floor(length - 1));
+}
+
+function removeBgPhoto() {
+  console.log("Photo not found so here is some colour");
+  heroImgContainer.style.backgroundImage = "none";
 }
 
 // async/await weather fetch
 // this will return a promise
+
+//fetchFlickrPhoto("cape town");
+
 export async function fetchWeatherAsync(cityName, units) {
   // returns a resolved promise and sets it to response
   const response = await fetch(
@@ -221,8 +236,8 @@ function formatTime(sunriseUnix, sunsetUnix) {
 }
 
 function setBackgroundImage(url) {
-  hero.style.backgroundImage = "none";
-  hero.style.backgroundImage = `url(${url})`;
+  heroImgContainer.style.backgroundImage = "none";
+  heroImgContainer.style.backgroundImage = `url(${url})`;
 }
 
 // returns a fulfilled promise with either a value of a responseDetails object or Error
