@@ -14,7 +14,7 @@ button {
   font-weight: 700;
   border: none;
   color: $aux-color;
-  background-color: darken($button-color, 10%);
+  background-color: $button-color;
 
   &:hover {
     background-color: lighten($button-color, 20%);
@@ -77,6 +77,10 @@ button {
 
 .full-width {
   width: 100%;
+}
+
+.full-height {
+  height: 100%;
 }
 
 .no-margin {

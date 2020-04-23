@@ -29,7 +29,6 @@ menuControl("close", "menu", "menu-overlay");
 // hit the weather api
 const API_KEY = "4341bfb4d351de693ffba36fee82fc49";
 const flickr_API_KEY = "1951625a765ba51695f0fe80993edb42";
-const maps_API_KEY = "AIzaSyBYmeOWR_Gvy96W2I1YjV4siZAwb2yub3s";
 
 export async function fetchFlickrPhoto(cityName) {
   try {
@@ -63,7 +62,6 @@ function removeBgPhoto() {
 }
 
 // async/await weather fetch
-// this will return a promise
 
 //fetchFlickrPhoto("cape town");
 
@@ -181,7 +179,7 @@ function populateDOM(weatherObjects) {
   // temperature readings
   //.innerHTML = tempObj.feels_like;
   humid.innerHTML = `${tempObj.humidity} %`;
-  wind.innerHTML = `${tempObj.wind} km/h`;
+  wind.innerHTML = `${Math.floor(tempObj.wind)} km/h`;
   //press.innerHTML = tempObj.pressure;
   temp.innerHTML = `${Math.floor(tempObj.temp)}&deg;`;
   tempMax.innerHTML = `${Math.floor(tempObj.temp_max)}&deg;`;
@@ -226,12 +224,13 @@ function formatTime(sunriseUnix, sunsetUnix) {
 
   const sunriseMilliseconds = sunriseUnix * 1000;
   const sunriseTime = new Date(sunriseMilliseconds);
+  console.log("sunrise time", sunriseTime);
   const sunrise = sunriseTime.toLocaleTimeString("en-za", options);
 
   const sunsetMilliseconds = sunsetUnix * 1000;
   const sunsetTime = new Date(sunsetMilliseconds);
   const sunset = sunsetTime.toLocaleTimeString("en-za", options);
-  console.log(sunrise, sunset);
+  console.log("sunrise", sunrise, "sunset", sunset);
   return { sunrise, sunset };
 }
 

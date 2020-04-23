@@ -6,7 +6,7 @@
 // MENU button
 #menu {
   z-index: 2;
-  position: fixed;
+  position: absolute;
   bottom: 0;
   width: 50%;
   border-radius: 2em;
@@ -60,10 +60,14 @@
     grid-area: menuSocial;
     display: flex;
     justify-content: space-between;
+    align-items: center;
   }
   i {
     font-size: 1.6em;
-    color: $dark-color;
+    color: darken($dark-color, 10%);
+    &:hover {
+      color: lighten($dark-color, 10%);
+    }
   }
 }
 
@@ -137,4 +141,5 @@ input[type="radio"].toggle {
 .unitsSwitchContainer {
   font-weight: 700;
   font-size: 0.7em;
+  opacity: 90%;
 }
