@@ -17,7 +17,7 @@ button {
   background-color: $button-color;
 
   &:hover {
-    background-color: lighten($button-color, 20%);
+    background-color: lighten($button-color, 5%);
   }
 }
 .input-lrg {

@@ -18,11 +18,11 @@ button {
   font-weight: 700;
   border: none;
   color: white;
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: #4285f4;
 }
 
 button:hover {
-  background-color: rgba(51, 51, 51, 0.8);
+  background-color: #5a95f5;
 }
 
 .input-lrg {

@@ -18,11 +18,11 @@ button {
   font-weight: 700;
   border: none;
   color: white;
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: #4285f4;
 }
 
 button:hover {
-  background-color: rgba(51, 51, 51, 0.8);
+  background-color: #5a95f5;
 }
 
 .input-lrg {
@@ -247,12 +247,12 @@ button:hover {
   width: 50%;
   border-radius: 2em;
   padding: 1em;
-  background-color: rgba(45, 45, 45, 0.859);
+  background-color: rgba(0, 0, 0, 0.8);
   cursor: pointer;
 }
 
 #menu:hover {
-  background-color: rgba(97, 95, 95, 0.859);
+  background-color: rgba(26, 26, 26, 0.8);
 }
 
 #menu-overlay {
@@ -408,6 +408,7 @@ input[type="radio"].toggle:checked + label:after {
 .unitsSwitchContainer {
   font-weight: 700;
   font-size: 0.7em;
+  opacity: 90%;
 }
 
 html {
