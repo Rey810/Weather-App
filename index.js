@@ -68,7 +68,7 @@ function removeBgPhoto() {
 export async function fetchWeatherAsync(cityName, units) {
   // returns a resolved promise and sets it to response
   const response = await fetch(
-    `http://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${API_KEY}&units=${units}`
+    `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${API_KEY}&units=${units}`
   );
   // responseDetails is declared here so that it can be passed onto useData
   // or inspected for error messages
