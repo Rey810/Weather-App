@@ -416,4 +416,8 @@ input[type="radio"].toggle:checked + label:after {
   font-size: 0.7em;
   opacity: 90%;
 }
+
+.cityNameInput {
+  color: rgba(0, 0, 0, 0.69);
+}
 /*# sourceMappingURL=menu.css.map */

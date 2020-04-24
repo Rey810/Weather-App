@@ -417,6 +417,10 @@ input[type="radio"].toggle:checked + label:after {
   opacity: 90%;
 }
 
+.cityNameInput {
+  color: rgba(0, 0, 0, 0.69);
+}
+
 html {
   font-family: "Montserrat", Arial, Helvetica, sans-serif;
   font-size: 16px;
@@ -470,8 +474,8 @@ h6 {
   background-image: url(./Images/cape-town-900.png);
   background-size: cover;
   background-position: center;
-  -webkit-filter: grayscale(100);
-          filter: grayscale(100);
+  -webkit-filter: contrast(1.2) grayscale(85%);
+          filter: contrast(1.2) grayscale(85%);
 }
 
 .summary {
@@ -483,6 +487,7 @@ h6 {
       grid-template-columns: 1fr 1fr;
   -ms-grid-rows: auto 1fr;
       grid-template-rows: auto 1fr;
+  mix-blend-mode: luminosity;
 }
 
 header {
