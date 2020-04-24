@@ -33,7 +33,7 @@ const flickr_API_KEY = "1951625a765ba51695f0fe80993edb42";
 export async function fetchFlickrPhoto(cityName) {
   try {
     const responseData = await fetch(
-      `https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=${flickr_API_KEY}&tags=${cityName},iconic&tag_mode=all&sort=interestingness-desc&safe_search=1&content_type=1&media=photos&per_page=10&page=1&format=json&nojsoncallback=1`
+      `https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=${flickr_API_KEY}&tags=${cityName},iconic&tag_mode=all&sort=interestingness-desc&safe_search=1&content_type=1&media=photos&per_page=5&page=1&format=json&nojsoncallback=1`
     );
     const jsonData = await responseData.json();
     if (responseData.ok == true && jsonData.stat != "fail") {
