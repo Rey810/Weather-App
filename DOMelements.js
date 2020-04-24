@@ -1,5 +1,5 @@
 import { fetchWeatherAsync, fetchFlickrPhoto } from "./index.js";
-
+import { getCountryCode } from "./countryCode.js";
 // search button and array of divs with data
 let button = document.querySelector("#citySearchButton");
 export let dataDivs = [...document.querySelectorAll(".data")];
@@ -7,12 +7,21 @@ export let dataDivs = [...document.querySelectorAll(".data")];
 // adds search button event handler
 button.addEventListener("click", () => {
   let searchQuery = document.querySelector("#cityNameInput").value;
+  let infoArray = searchQuery.split(",");
+  let nameOfCity = infoArray[0];
+  // city name without the space in front of the name
+  let nameOfCountry = infoArray[infoArray.length - 1].replace(" ", "");
+  let countryCode = getCountryCode(nameOfCountry);
+  console.log("raw search query", searchQuery);
+  console.log("formatted query to use", nameOfCity, nameOfCountry, countryCode);
+  let query = `${nameOfCity},${countryCode}`;
+
   let units = getUnit();
 
   // fetches the weather data
-  fetchWeatherAsync(searchQuery, units);
+  fetchWeatherAsync(query, units);
   // fetches the city photo
-  fetchFlickrPhoto(searchQuery);
+  fetchFlickrPhoto(nameOfCity);
   menuToggle("menu-overlay");
 });
 

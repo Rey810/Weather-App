@@ -550,4 +550,8 @@ header {
   -webkit-transform: scale(0.8);
           transform: scale(0.8);
 }
+
+.ap-icon-pin {
+  display: none;
+}
 /*# sourceMappingURL=style.css.map */

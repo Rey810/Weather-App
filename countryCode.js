@@ -246,10 +246,23 @@ const isoCountries = {
   ZW: "Zimbabwe",
 };
 
-export default function getCountryName(countryCode) {
+export function getCountryName(countryCode) {
   if (isoCountries.hasOwnProperty(countryCode)) {
     return isoCountries[countryCode];
   } else {
     return countryCode;
+  }
+}
+
+export function getCountryCode(countryName) {
+  console.log("country name burh", countryName);
+  try {
+    let keys = Object.keys(isoCountries);
+    console.table(keys);
+    let key = keys.find((k) => isoCountries[k] == countryName);
+    console.warn("key", key);
+    return key;
+  } catch (error) {
+    console.log(error);
   }
 }

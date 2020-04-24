@@ -21,7 +21,7 @@ import {
 
 import { colors } from "./colors.js";
 
-import getCountryCode from "./countryCode.js";
+import { getCountryName } from "./countryCode.js";
 import menuControl from "./menuControl.js";
 // add functionality to menu
 menuControl("close", "menu", "menu-overlay");
@@ -65,10 +65,10 @@ function removeBgPhoto() {
 
 //fetchFlickrPhoto("cape town");
 
-export async function fetchWeatherAsync(cityName, units) {
+export async function fetchWeatherAsync(queryName, units) {
   // returns a resolved promise and sets it to response
   const response = await fetch(
-    `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${API_KEY}&units=${units}`
+    `https://api.openweathermap.org/data/2.5/weather?q=${queryName}&appid=${API_KEY}&units=${units}`
   );
   // responseDetails is declared here so that it can be passed onto useData
   // or inspected for error messages
@@ -104,7 +104,7 @@ function destructureData(response) {
   // city and country
   let { name: cityName } = response;
   let { country: countryCode } = response.sys;
-  let countryName = getCountryCode(countryCode);
+  let countryName = getCountryName(countryCode);
   console.log("country", country);
 
   // destructure response data into weather variables
@@ -246,3 +246,10 @@ function setBackgroundImage(url) {
 
 // returns a fulfilled promise with either a value of a responseDetails object or Error
 //fetchWeatherAsync();
+
+// PLACES AUTOCOMPLETE
+export let placesAutocomplete = places({
+  appId: "plD80CGT2YTX",
+  apiKey: "ea3585946e68c7bffe43e74f97d73b0c",
+  container: document.querySelector("#cityNameInput"),
+}).configure({ type: "city" });
