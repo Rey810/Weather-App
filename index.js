@@ -166,7 +166,12 @@ function populateDOM(weatherObjects) {
   }
 
   // set background-colour according to weather name
-  hero.style.backgroundColor = colors[weatherSummary.weatherName];
+  try {
+    console.log("color value", colors[weatherSummary.weatherName]);
+    hero.style.backgroundColor = colors[weatherSummary.weatherName];
+  } catch (error) {
+    console.log(error);
+  }
 
   // weather summary
   date.innerHTML = weatherSummary.weatherDate;

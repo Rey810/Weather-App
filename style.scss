@@ -28,7 +28,7 @@ h6 {
   display: grid;
   height: 100%;
   grid-template-rows: 1fr 1fr;
-  background-color: hsla(0, 100%, 70.6%, 0.5);
+  background-color: hsla(0, 39.2%, 52%, 0.7);
   //background-image: url(./Images/cape-town-900.png);
   //@warn: cover;
   background-blend-mode: soft-light;
@@ -37,7 +37,7 @@ h6 {
   h5,
   h6,
   i {
-    filter: drop-shadow(3px 2px 3px black);
+    //filter: drop-shadow(0px 0px 3px black);
   }
 }
 
@@ -57,7 +57,6 @@ h6 {
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: auto 1fr;
-  mix-blend-mode: luminosity;
 }
 
 header {
@@ -87,7 +86,7 @@ header {
 }
 
 .image-white-filter-shadow {
-  filter: invert(100%) contrast(3) drop-shadow(3px 2px 3px black);
+  filter: invert(100%) contrast(3);
 }
 
 .footer-container {

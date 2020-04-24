@@ -453,17 +453,8 @@ h6 {
   height: 100%;
   -ms-grid-rows: 1fr 1fr;
       grid-template-rows: 1fr 1fr;
-  background-color: rgba(255, 105, 105, 0.5);
+  background-color: rgba(181, 85, 85, 0.7);
   background-blend-mode: soft-light;
-}
-
-.hero-container .temp,
-.hero-container h4,
-.hero-container h5,
-.hero-container h6,
-.hero-container i {
-  -webkit-filter: drop-shadow(3px 2px 3px black);
-          filter: drop-shadow(3px 2px 3px black);
 }
 
 .hero-img-container {
@@ -487,7 +478,6 @@ h6 {
       grid-template-columns: 1fr 1fr;
   -ms-grid-rows: auto 1fr;
       grid-template-rows: auto 1fr;
-  mix-blend-mode: luminosity;
 }
 
 header {
@@ -524,8 +514,8 @@ header {
 }
 
 .image-white-filter-shadow {
-  -webkit-filter: invert(100%) contrast(3) drop-shadow(3px 2px 3px black);
-          filter: invert(100%) contrast(3) drop-shadow(3px 2px 3px black);
+  -webkit-filter: invert(100%) contrast(3);
+          filter: invert(100%) contrast(3);
 }
 
 .footer-container {
