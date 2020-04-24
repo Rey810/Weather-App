@@ -10,7 +10,8 @@ body {
   display: grid;
   width: auto;
   margin: 0;
-  height: 100vh;
+  min-height: 100vh;
+  max-height: 100vh;
   grid-template-rows: 5fr 2fr;
 }
 
@@ -91,9 +92,12 @@ header {
 .footer-container {
   grid-row: 2;
   background-color: $aux-color;
+  display: grid;
+  grid-template-rows: 2fr auto;
 }
 
 .footer-info-container {
+  grid-row: 1;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   img {

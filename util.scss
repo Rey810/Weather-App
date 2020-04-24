@@ -87,6 +87,11 @@ button {
   margin: 0;
 }
 
+.auto-margin-sides {
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .center {
   display: flex;
   justify-content: center;

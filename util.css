@@ -93,6 +93,11 @@ button:hover {
   margin: 0;
 }
 
+.auto-margin-sides {
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .center {
   display: -webkit-box;
   display: -ms-flexbox;

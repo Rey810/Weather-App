@@ -93,6 +93,11 @@ button:hover {
   margin: 0;
 }
 
+.auto-margin-sides {
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .center {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -241,10 +246,10 @@ button:hover {
 }
 
 #menu {
+  -ms-grid-row: 2;
+  grid-row: 2;
   z-index: 2;
-  position: fixed;
   bottom: 0;
-  margin-top: 1em;
   width: 50%;
   border-radius: 2em;
   padding: 1em;
@@ -422,7 +427,8 @@ body {
   display: grid;
   width: auto;
   margin: 0;
-  height: 100vh;
+  min-height: 100vh;
+  max-height: 100vh;
   -ms-grid-rows: 5fr 2fr;
       grid-template-rows: 5fr 2fr;
 }
@@ -521,9 +527,15 @@ header {
   -ms-grid-row: 2;
   grid-row: 2;
   background-color: white;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-rows: 2fr auto;
+      grid-template-rows: 2fr auto;
 }
 
 .footer-info-container {
+  -ms-grid-row: 1;
+  grid-row: 1;
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: (1fr)[4];
