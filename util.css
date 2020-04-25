@@ -185,11 +185,11 @@ button:hover {
 }
 
 .dark-color {
-  color: rgba(0, 0, 0, 0.8);
+  color: rgba(0, 0, 0, 0.7);
 }
 
 .sec-dark-color {
-  color: rgba(0, 0, 0, 0.6);
+  color: rgba(0, 0, 0, 0.7);
 }
 
 .text-normal {
@@ -235,6 +235,10 @@ button:hover {
 
 .side-auto-margin {
   margin: 0 auto;
+}
+
+.no-margin-bottom {
+  margin-bottom: 0;
 }
 
 .block {

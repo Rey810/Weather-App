@@ -185,11 +185,11 @@ button:hover {
 }
 
 .dark-color {
-  color: rgba(0, 0, 0, 0.8);
+  color: rgba(0, 0, 0, 0.7);
 }
 
 .sec-dark-color {
-  color: rgba(0, 0, 0, 0.6);
+  color: rgba(0, 0, 0, 0.7);
 }
 
 .text-normal {
@@ -237,6 +237,10 @@ button:hover {
   margin: 0 auto;
 }
 
+.no-margin-bottom {
+  margin-bottom: 0;
+}
+
 .block {
   display: block;
 }
@@ -271,7 +275,7 @@ button:hover {
   height: 100%;
   display: -ms-grid;
   display: grid;
-  color: rgba(0, 0, 0, 0.8);
+  color: rgba(0, 0, 0, 0.7);
   text-align: center;
       grid-template-areas: "... menuHeader menuHeader menuClose" "... menuOptions menuOptions ..." "... menuOptions menuOptions ..." "... menuOptions menuOptions ..." "... menuSocial menuSocial ...";
   -ms-grid-columns: 1fr auto auto 1fr;
@@ -329,11 +333,11 @@ button:hover {
 
 #menu-overlay i {
   font-size: 1.6em;
-  color: rgba(0, 0, 0, 0.8);
+  color: rgba(0, 0, 0, 0.7);
 }
 
 #menu-overlay i:hover {
-  color: rgba(26, 26, 26, 0.8);
+  color: rgba(26, 26, 26, 0.7);
 }
 
 .visible {
