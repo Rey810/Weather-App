@@ -1,4 +1,4 @@
-import { fetchWeatherAsync, fetchFlickrPhoto } from "./index.js";
+import { fetchWeatherAsync, fetchFlickrPhoto, toggleLoader } from "./index.js";
 import { getCountryCode } from "./countryCode.js";
 // search button and array of divs with data
 let button = document.querySelector("#citySearchButton");
@@ -6,6 +6,7 @@ export let dataDivs = [...document.querySelectorAll(".data")];
 
 // adds search button event handler
 button.addEventListener("click", () => {
+  toggleLoader();
   let searchQuery = document.querySelector("#cityNameInput").value;
   let infoArray = searchQuery.split(",");
   let nameOfCity = infoArray[0];

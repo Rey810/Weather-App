@@ -46,7 +46,7 @@ h6 {
   z-index: -1;
   height: 100%;
   width: 100%;
-  background-image: url(./Images/cape-town-900.png);
+  background-image: url(./Images/cape-town-900.jpg);
   background-size: cover;
   background-position: center;
   filter: contrast(1.2) grayscale(85%);
@@ -118,4 +118,79 @@ header {
 
 .ap-icon-pin {
   display: none;
+}
+
+#loader-wrapper .loader-section {
+  position: fixed;
+  top: 0;
+  width: 51%;
+  height: 100%;
+  background: $loaderBackground;
+  z-index: 1000;
+}
+
+#loader-wrapper .loader-section.section-left {
+  left: 0;
+}
+
+#loader-wrapper .loader-section.section-right {
+  right: 0;
+}
+
+#loader {
+  color: $initialColour;
+  z-index: 1001;
+  left: 50%;
+  top: 50%;
+  transform: translate3d(-50%, -50%, 0);
+  position: fixed;
+  animation: colourChange 1.2s infinite;
+  .loaderPeriod {
+    color: $finalColour;
+    animation: reverseColourChange 1.2s infinite;
+  }
+}
+
+@keyframes reverseColourChange {
+  0% {
+    color: $finalColour;
+  }
+
+  50% {
+    color: $initialColour;
+  }
+}
+
+@keyframes colourChange {
+  0% {
+    color: $initialColour;
+  }
+
+  50% {
+    color: $finalColour;
+  }
+
+  100% {
+    color: $initialColour;
+  }
+}
+
+.loaded #loader-wrapper .loader-section.section-left {
+  transform: translate3d(-100%, 0, 0);
+}
+.loaded #loader-wrapper .loader-section.section-right {
+  transform: translate3d(100%, 0, 0);
+}
+
+.loaded #loader-wrapper .loader-section.section-left,
+.loaded #loader-wrapper .loader-section.section-right {
+  transition: all 0.7s 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+
+.loaded #loader {
+  opacity: 0;
+  transition: all 0.3s ease-out;
+}
+.loaded #loader-wrapper {
+  visibility: hidden;
 }

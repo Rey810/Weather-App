@@ -1,3 +1,4 @@
+/*LOADER*/
 .stack-children {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -249,6 +250,7 @@ button:hover {
   width: auto;
 }
 
+/*LOADER*/
 #menu {
   -ms-grid-row: 2;
   grid-row: 2;
@@ -425,6 +427,7 @@ input[type="radio"].toggle:checked + label:after {
   color: rgba(0, 0, 0, 0.69);
 }
 
+/*LOADER*/
 html {
   font-family: "Montserrat", Arial, Helvetica, sans-serif;
   font-size: 16px;
@@ -466,7 +469,7 @@ h6 {
   z-index: -1;
   height: 100%;
   width: 100%;
-  background-image: url(./Images/cape-town-900.png);
+  background-image: url(./Images/cape-town-900.jpg);
   background-size: cover;
   background-position: center;
   -webkit-filter: contrast(1.2) grayscale(85%);
@@ -557,5 +560,108 @@ header {
 
 .ap-icon-pin {
   display: none;
+}
+
+#loader-wrapper .loader-section {
+  position: fixed;
+  top: 0;
+  width: 51%;
+  height: 100%;
+  background: white;
+  z-index: 1000;
+}
+
+#loader-wrapper .loader-section.section-left {
+  left: 0;
+}
+
+#loader-wrapper .loader-section.section-right {
+  right: 0;
+}
+
+#loader {
+  color: #a9ca03;
+  z-index: 1001;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate3d(-50%, -50%, 0);
+          transform: translate3d(-50%, -50%, 0);
+  position: fixed;
+  -webkit-animation: colourChange 1.2s infinite;
+          animation: colourChange 1.2s infinite;
+}
+
+#loader .loaderPeriod {
+  color: #025d9e;
+  -webkit-animation: reverseColourChange 1.2s infinite;
+          animation: reverseColourChange 1.2s infinite;
+}
+
+@-webkit-keyframes reverseColourChange {
+  0% {
+    color: #025d9e;
+  }
+  50% {
+    color: #a9ca03;
+  }
+}
+
+@keyframes reverseColourChange {
+  0% {
+    color: #025d9e;
+  }
+  50% {
+    color: #a9ca03;
+  }
+}
+
+@-webkit-keyframes colourChange {
+  0% {
+    color: #a9ca03;
+  }
+  50% {
+    color: #025d9e;
+  }
+  100% {
+    color: #a9ca03;
+  }
+}
+
+@keyframes colourChange {
+  0% {
+    color: #a9ca03;
+  }
+  50% {
+    color: #025d9e;
+  }
+  100% {
+    color: #a9ca03;
+  }
+}
+
+.loaded #loader-wrapper .loader-section.section-left {
+  -webkit-transform: translate3d(-100%, 0, 0);
+          transform: translate3d(-100%, 0, 0);
+}
+
+.loaded #loader-wrapper .loader-section.section-right {
+  -webkit-transform: translate3d(100%, 0, 0);
+          transform: translate3d(100%, 0, 0);
+}
+
+.loaded #loader-wrapper .loader-section.section-left,
+.loaded #loader-wrapper .loader-section.section-right {
+  -webkit-transition: all 0.7s 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+  transition: all 0.7s 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+
+.loaded #loader {
+  opacity: 0;
+  -webkit-transition: all 0.3s ease-out;
+  transition: all 0.3s ease-out;
+}
+
+.loaded #loader-wrapper {
+  visibility: hidden;
 }
 /*# sourceMappingURL=style.css.map */

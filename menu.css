@@ -1,3 +1,4 @@
+/*LOADER*/
 .stack-children {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -249,6 +250,7 @@ button:hover {
   width: auto;
 }
 
+/*LOADER*/
 #menu {
   -ms-grid-row: 2;
   grid-row: 2;

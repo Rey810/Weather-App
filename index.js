@@ -18,17 +18,22 @@ import {
   heroImgContainer,
   dataDivs,
 } from "./DOMelements.js";
-
 import { colors } from "./colors.js";
-
 import { getCountryName } from "./countryCode.js";
 import menuControl from "./menuControl.js";
-// add functionality to menu
-menuControl("close", "menu", "menu-overlay");
 
 // hit the weather api
 const API_KEY = "4341bfb4d351de693ffba36fee82fc49";
 const flickr_API_KEY = "1951625a765ba51695f0fe80993edb42";
+
+// add functionality to menu
+menuControl("close", "menu", "menu-overlay");
+
+// add initial data upon site load
+// fetches the weather data
+fetchWeatherAsync("Cape Town, ZA", "metric");
+// fetches the city photo
+fetchFlickrPhoto("Cape Town");
 
 export async function fetchFlickrPhoto(cityName) {
   try {
@@ -36,10 +41,11 @@ export async function fetchFlickrPhoto(cityName) {
       `https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=${flickr_API_KEY}&tags=${cityName},iconic&tag_mode=all&sort=interestingness-desc&safe_search=1&content_type=1&media=photos&per_page=5&page=1&format=json&nojsoncallback=1`
     );
     const jsonData = await responseData.json();
+    console.log(jsonData);
     if (responseData.ok == true && jsonData.stat != "fail") {
       const photoArrayLength = jsonData.photos.photo.length;
       const photoData = jsonData.photos.photo[randomNumber(photoArrayLength)];
-      const imageUrl = `https://farm${photoData.farm}.staticflickr.com/${photoData.server}/${photoData.id}_${photoData.secret}_z.jpg`;
+      const imageUrl = `https://farm${photoData.farm}.staticflickr.com/${photoData.server}/${photoData.id}_${photoData.secret}_c.jpg`;
       console.log("image url", imageUrl);
       setBackgroundImage(imageUrl);
       return imageUrl;
@@ -57,8 +63,9 @@ function randomNumber(length) {
 }
 
 function removeBgPhoto() {
-  console.log("Photo not found so here is some colour");
-  heroImgContainer.style.backgroundImage = "none";
+  console.log("Photo not found so here is a placeholder");
+  heroImgContainer.style.backgroundImage = `url(./Images/placeholder.jpg)`;
+  toggleLoader();
 }
 
 // async/await weather fetch
@@ -240,8 +247,18 @@ function formatTime(sunriseUnix, sunsetUnix) {
 }
 
 function setBackgroundImage(url) {
+  let img = new Image();
+  img.src = url;
+  img.onload = function () {
+    toggleLoader();
+  };
   heroImgContainer.style.backgroundImage = "none";
-  heroImgContainer.style.backgroundImage = `url(${url})`;
+  heroImgContainer.style.backgroundImage = `url(${img.src}`;
+}
+
+export function toggleLoader() {
+  const body = document.body;
+  body.classList.toggle("loaded");
 }
 
 // returns a fulfilled promise with either a value of a responseDetails object or Error
