@@ -14,6 +14,12 @@
       justify-content: space-around;
 }
 
+.flex-space-even {
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+}
+
 button {
   padding: 1em;
   font-weight: 700;
@@ -309,7 +315,7 @@ button:hover {
 }
 
 #menu:hover {
-  background-color: rgba(26, 26, 26, 0.8);
+  background-color: rgba(51, 51, 51, 0.8);
 }
 
 #menu-overlay {

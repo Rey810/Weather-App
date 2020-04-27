@@ -19,6 +19,8 @@ button.addEventListener("click", () => {
 
   let units = getUnit();
 
+  //clear search
+  document.querySelector("#cityNameInput").value = "";
   // fetches the weather data
   fetchWeatherAsync(query, units);
   // fetches the city photo
