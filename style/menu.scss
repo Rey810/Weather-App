@@ -33,7 +33,8 @@
     "... menuOptions menuOptions ..."
     "... menuOptions menuOptions ..."
     "... menuOptions menuOptions ..."
-    "... menuSocial menuSocial ...";
+    "... menuSocial menuSocial ..."
+    "madeBy  madeBy  madeBy  madeBy";
   grid-template-columns: 1fr auto auto 1fr;
 
   #menu-header {
@@ -60,13 +61,30 @@
     grid-area: menuSocial;
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-end;
   }
   i {
     font-size: 1.6em;
     color: darken($dark-color, 10%);
     &:hover {
       color: lighten($dark-color, 10%);
+    }
+  }
+
+  #made-by {
+    grid-area: madeBy;
+    a {
+      color: darken($button-color, 10%);
+      &:hover {
+        color: $button-color;
+      }
+    }
+    i {
+      font-size: 1em !important;
+      margin-top: 0.1em;
+      &:hover {
+        color: rgba(0, 0, 0, 0.7);
+      }
     }
   }
 }

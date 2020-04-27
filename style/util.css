@@ -14,6 +14,12 @@
       justify-content: space-around;
 }
 
+.flex-space-even {
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+}
+
 button {
   padding: 1em;
   font-weight: 700;
@@ -221,6 +227,10 @@ button:hover {
   background-color: #3386c3;
 }
 
+.text-small {
+  font-size: 0.5em;
+}
+
 .text-normal {
   font-size: 1em;
 }
@@ -281,5 +291,13 @@ button:hover {
 .btn-shadow {
   -webkit-box-shadow: 0 1px 4px black;
           box-shadow: 0 1px 4px black;
+}
+
+.no-decoration {
+  text-decoration: none;
+}
+
+.italic-font {
+  font-style: italic;
 }
 /*# sourceMappingURL=util.css.map */

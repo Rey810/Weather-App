@@ -9,6 +9,10 @@
   justify-content: space-around;
 }
 
+.flex-space-even {
+  justify-content: space-evenly;
+}
+
 button {
   padding: 1em;
   font-weight: 700;
@@ -179,6 +183,10 @@ button {
   background-color: $cold-color;
 }
 
+.text-small {
+  font-size: 0.5em;
+}
+
 .text-normal {
   font-size: 1em;
 }
@@ -238,4 +246,12 @@ button {
 
 .btn-shadow {
   box-shadow: 0 1px 4px black;
+}
+
+.no-decoration {
+  text-decoration: none;
+}
+
+.italic-font {
+  font-style: italic;
 }

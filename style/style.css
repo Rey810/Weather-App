@@ -14,6 +14,12 @@
       justify-content: space-around;
 }
 
+.flex-space-even {
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+}
+
 button {
   padding: 1em;
   font-weight: 700;
@@ -221,6 +227,10 @@ button:hover {
   background-color: #3386c3;
 }
 
+.text-small {
+  font-size: 0.5em;
+}
+
 .text-normal {
   font-size: 1em;
 }
@@ -283,6 +293,14 @@ button:hover {
           box-shadow: 0 1px 4px black;
 }
 
+.no-decoration {
+  text-decoration: none;
+}
+
+.italic-font {
+  font-style: italic;
+}
+
 /*LOADER*/
 #menu {
   -ms-grid-row: 2;
@@ -312,7 +330,7 @@ button:hover {
   display: grid;
   color: rgba(0, 0, 0, 0.7);
   text-align: center;
-      grid-template-areas: "... menuHeader menuHeader menuClose" "... menuOptions menuOptions ..." "... menuOptions menuOptions ..." "... menuOptions menuOptions ..." "... menuSocial menuSocial ...";
+      grid-template-areas: "... menuHeader menuHeader menuClose" "... menuOptions menuOptions ..." "... menuOptions menuOptions ..." "... menuOptions menuOptions ..." "... menuSocial menuSocial ..." "madeBy  madeBy  madeBy  madeBy";
   -ms-grid-columns: 1fr auto auto 1fr;
       grid-template-columns: 1fr auto auto 1fr;
 }
@@ -361,9 +379,9 @@ button:hover {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
 }
 
 #menu-overlay i {
@@ -373,6 +391,30 @@ button:hover {
 
 #menu-overlay i:hover {
   color: rgba(26, 26, 26, 0.7);
+}
+
+#menu-overlay #made-by {
+  -ms-grid-row: 6;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 4;
+  grid-area: madeBy;
+}
+
+#menu-overlay #made-by a {
+  color: #1266f1;
+}
+
+#menu-overlay #made-by a:hover {
+  color: #4285f4;
+}
+
+#menu-overlay #made-by i {
+  font-size: 1em !important;
+  margin-top: 0.1em;
+}
+
+#menu-overlay #made-by i:hover {
+  color: rgba(0, 0, 0, 0.7);
 }
 
 .visible {
