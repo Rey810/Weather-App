@@ -12,4 +12,4 @@ and a chance to build another small project from start to finish without the use
 
 ### Notes
 1. The timestamps displayed for sunrise and sunset still need to be formatted correctly as they currently display times in the user's timezone.
-1. This is meant to be viewed on mobile devices as the font and position scaling has not been factored in yet.
+1. This is best viewed on mobile devices as a fully responsive layout has not been implemented yet.
