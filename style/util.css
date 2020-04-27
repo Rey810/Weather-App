@@ -277,4 +277,9 @@ button:hover {
 .auto-width {
   width: auto;
 }
+
+.btn-shadow {
+  -webkit-box-shadow: 0 1px 4px black;
+          box-shadow: 0 1px 4px black;
+}
 /*# sourceMappingURL=util.css.map */

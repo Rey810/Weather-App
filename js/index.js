@@ -31,9 +31,10 @@ menuControl("close", "menu", "menu-overlay");
 
 // add initial data upon site load
 // fetches the weather data
-fetchWeatherAsync("Cape Town, ZA", "metric");
-// fetches the city photo
-fetchFlickrPhoto("Cape Town");
+window.onload = () => {
+  fetchWeatherAsync("Cape Town, ZA", "metric");
+  toggleLoader();
+};
 
 export async function fetchFlickrPhoto(cityName) {
   try {
@@ -256,6 +257,7 @@ function setBackgroundImage(url) {
     toggleLoader();
   };
   heroImgContainer.style.backgroundImage = "none";
+  console.log("Im inside the backgroundImage function", img.src);
   heroImgContainer.style.backgroundImage = `url(${img.src}`;
 }
 

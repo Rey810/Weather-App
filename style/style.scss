@@ -29,8 +29,6 @@ h6 {
   height: 100%;
   grid-template-rows: 1fr 1fr;
   background-color: hsla(0, 0%, 0%, 0.6);
-  //background-image: url(./Images/cape-town-900.png);
-  //@warn: cover;
   background-blend-mode: soft-light;
   .temp,
   h4,
@@ -46,7 +44,7 @@ h6 {
   z-index: -1;
   height: 100%;
   width: 100%;
-  background-image: url(./Images/cape-town-900.jpg);
+  background-image: url(../Images/cape-town-900.jpg);
   background-size: cover;
   background-position: center;
   filter: contrast(1.2) grayscale(85%);

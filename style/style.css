@@ -278,6 +278,11 @@ button:hover {
   width: auto;
 }
 
+.btn-shadow {
+  -webkit-box-shadow: 0 1px 4px black;
+          box-shadow: 0 1px 4px black;
+}
+
 /*LOADER*/
 #menu {
   -ms-grid-row: 2;
@@ -497,7 +502,7 @@ h6 {
   z-index: -1;
   height: 100%;
   width: 100%;
-  background-image: url(./Images/cape-town-900.jpg);
+  background-image: url(../Images/cape-town-900.jpg);
   background-size: cover;
   background-position: center;
   -webkit-filter: contrast(1.2) grayscale(85%);
