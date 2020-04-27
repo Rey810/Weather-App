@@ -1,4 +1,4 @@
-# Odin's Forecast a.k.a Weather App 
+# Odin's Forecast a.k.a A Weather App 
 
 ## What?
 * This is a weather app built in Javascript, HTML, and CSS (no frameworks).
