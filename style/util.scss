@@ -20,6 +20,11 @@ button {
     background-color: lighten($button-color, 5%);
   }
 }
+
+.round {
+  border-radius: 50%;
+}
+
 .input-lrg {
   padding: 1em 0.5em;
   font-size: 1em;
@@ -77,6 +82,14 @@ button {
 
 .full-width {
   width: 100%;
+}
+
+.em-width {
+  width: 1em;
+}
+
+.center-text {
+  text-align: center;
 }
 
 .full-height {
@@ -148,6 +161,22 @@ button {
 
 .sec-dark-color {
   color: $sec-dark-color;
+}
+
+.day-color {
+  background-color: $day-color;
+}
+
+.night-color {
+  background-color: $night-color;
+}
+
+.hot-color {
+  background-color: $hot-color;
+}
+
+.cold-color {
+  background-color: $cold-color;
 }
 
 .text-normal {

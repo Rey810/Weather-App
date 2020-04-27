@@ -28,7 +28,7 @@ h6 {
   display: grid;
   height: 100%;
   grid-template-rows: 1fr 1fr;
-  background-color: hsla(0, 39.2%, 52%, 0.7);
+  background-color: hsla(0, 0%, 0%, 0.6);
   //background-image: url(./Images/cape-town-900.png);
   //@warn: cover;
   background-blend-mode: soft-light;
@@ -94,6 +94,10 @@ header {
   background-color: $aux-color;
   display: grid;
   grid-template-rows: 2fr auto;
+  i {
+    padding: 0.6em;
+    font-size: 1.2em;
+  }
 }
 
 .footer-info-container {

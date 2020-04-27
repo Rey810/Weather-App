@@ -26,6 +26,10 @@ button:hover {
   background-color: #5a95f5;
 }
 
+.round {
+  border-radius: 50%;
+}
+
 .input-lrg {
   padding: 1em 0.5em;
   font-size: 1em;
@@ -84,6 +88,14 @@ button:hover {
 
 .full-width {
   width: 100%;
+}
+
+.em-width {
+  width: 1em;
+}
+
+.center-text {
+  text-align: center;
 }
 
 .full-height {
@@ -191,6 +203,22 @@ button:hover {
 
 .sec-dark-color {
   color: rgba(0, 0, 0, 0.7);
+}
+
+.day-color {
+  background-color: HSL(51, 90.8%, 57.5%);
+}
+
+.night-color {
+  background-color: #1f4561;
+}
+
+.hot-color {
+  background-color: #eb6827;
+}
+
+.cold-color {
+  background-color: #3386c3;
 }
 
 .text-normal {

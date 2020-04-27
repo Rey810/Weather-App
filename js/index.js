@@ -18,7 +18,7 @@ import {
   heroImgContainer,
   dataDivs,
 } from "./DOMelements.js";
-import { colors } from "./colors.js";
+//import { colors } from "./colors.js";
 import { getCountryName } from "./countryCode.js";
 import menuControl from "./menuControl.js";
 
@@ -43,18 +43,14 @@ export async function fetchFlickrPhoto(cityName) {
     const jsonData = await responseData.json();
     console.log(jsonData);
     if (responseData.ok == true && jsonData.stat != "fail") {
-      const photoArrayLength = jsonData.photos.photo.length;
-      const photoData = jsonData.photos.photo[randomNumber(photoArrayLength)];
-      const imageUrl = `https://farm${photoData.farm}.staticflickr.com/${photoData.server}/${photoData.id}_${photoData.secret}_c.jpg`;
-      console.log("image url", imageUrl);
-      setBackgroundImage(imageUrl);
-      return imageUrl;
+      const imageURL = formatURL(jsonData);
+      setBackgroundImage(imageURL);
     } else {
       throw new Error(responseDetails.message);
     }
   } catch (error) {
     console.log("Image fetch error", error);
-    removeBgPhoto();
+    placeholderBackground();
   }
 }
 
@@ -62,7 +58,7 @@ function randomNumber(length) {
   return Math.floor(Math.random() * Math.floor(length - 1));
 }
 
-function removeBgPhoto() {
+function placeholderBackground() {
   console.log("Photo not found so here is a placeholder");
   heroImgContainer.style.backgroundImage = `url(./Images/placeholder.jpg)`;
   toggleLoader();
@@ -174,8 +170,7 @@ function populateDOM(weatherObjects) {
 
   // set background-colour according to weather name
   try {
-    console.log("color value", colors[weatherSummary.weatherName]);
-    hero.style.backgroundColor = colors[weatherSummary.weatherName];
+    hero.style.backgroundColor = "hsla(0, 0%, 0%, 0.6)";
   } catch (error) {
     console.log(error);
   }
@@ -244,6 +239,14 @@ function formatTime(sunriseUnix, sunsetUnix) {
   const sunset = sunsetTime.toLocaleTimeString("en-za", options);
   console.log("sunrise", sunrise, "sunset", sunset);
   return { sunrise, sunset };
+}
+
+function formatURL(jsonData) {
+  const photoArrayLength = jsonData.photos.photo.length;
+  const photoData = jsonData.photos.photo[randomNumber(photoArrayLength)];
+  const imageUrl = `https://farm${photoData.farm}.staticflickr.com/${photoData.server}/${photoData.id}_${photoData.secret}_c.jpg`;
+  console.log("image url", imageUrl);
+  return imageUrl;
 }
 
 function setBackgroundImage(url) {

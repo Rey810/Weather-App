@@ -4,8 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Weather</title>
-    <link rel="stylesheet" href="style.css" />
-    <script src="https://kit.fontawesome.com/31038529b5.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="./style/style.css" />
+    <script src="https://kit.fontawesome.com/31038529b5.js" crossorigin="anonymous" async></script>
     <link
     href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,700
     rel="stylesheet" type="text/css">
@@ -66,7 +66,7 @@ block' height="800px" width="400px">-->
         <div class="date">
         </div>
         <div class="big-temp-display center margin-left-x2">
-          <div class="temp data text-xxlrg main-color">20&deg;</div>
+          <div class="temp data text-xxlrg main-color xtra-light-font">20&deg;</div>
         </div>
 
         <div class="summary-details stack-children center-vertical margin-left">
@@ -87,32 +87,36 @@ block' height="800px" width="400px">-->
     </section>
 
     <section class="footer-container">
-      <div class="footer-info-container margin-sides-x2 sec-dark-color center margin-top-x2">
+      <div class="footer-info-container margin-sides-x2 sec-dark-color center">
         <div class="footer-item center column no-margin-bottom">
-          <img src="./Images/sunrise.png" alt="Sunrise Icon" class="icon" height="30px" width="30px"> 
-          <h6 class="title margin-top-x1-25 sec-dark-color shift-left">Sunrise</h6>
-          <h5 class="shift-left margin-top-x2 sunrise data dark-color medium-font text-normal">2134</h5>
+          <!--<img src="./Images/sunrise.png" alt="Sunrise Icon" class="icon" height="30px" width="30px">-->
+          <i class="sec-color round day-color far fa-sun"></i>
+          <!--<h6 class="title margin-top-x1-25 sec-dark-color ">Sunrise</h6>-->
+          <h5 class="no-margin-bottom margin-top-x2 sunrise data dark-color medium-font text-normal">2134</h5>
         </div>
         <div class="footer-item center column no-margin-bottom">
-          <img src="./Images/sunset.png" alt="Sunset icon" class="icon" height="30px" width="30px"> 
-          <h6 class="title margin-top-x1-25 sec-dark-color shift-left">Sunset</h6>
-          <h5 class="shift-left margin-top-x2 sunset data dark-color medium-font text-normal">2134</h5>
+          <!--<img src="./Images/sunset.png" alt="Sunset icon" class="icon" height="30px" width="30px"> -->
+          <i class="sec-color round night-color far fa-moon"></i>
+          <!--<h6 class="title margin-top-x1-25 sec-dark-color ">Sunset</h6>-->
+          <h5 class="no-margin-bottom margin-top-x2 sunset data dark-color medium-font text-normal">2134</h5>
         </div>
         <div class="footer-item center column no-margin-bottom">
-          <img src="./Images/high.png" alt="Temp. icon" class="icon temp-icon" height="30px" width="30px"> 
-          <h6 class="title margin-top-x1-25 temp-title sec-dark-color">Max.</h6>
-          <h5 class="shift-left margin-top-x2 temp_max data dark-color medium-font text-normal">2134</h5>
+          <!--<img src="./Images/high.png" alt="Temp. icon" class="icon temp-icon" height="30px" width="30px"> -->
+          <i class="sec-color hot-color round em-width center-text fas fa-thermometer-full"></i>
+          <!--<h6 class="title margin-top-x1-25 temp-title sec-dark-color">Max.</h6>-->
+          <h5 class="no-margin-bottom margin-top-x2 temp_max data dark-color medium-font text-normal">2134</h5>
         </div>
         <div class="footer-item center column no-margin-bottom">
-          <img src="./Images/low.png" alt="Temp. icon" class="icon temp-icon" height="30px" width="30px"> 
-          <h6 class="title margin-top-x1-25 temp-title sec-dark-color">Min.</h6>
-          <h5 class="shift-left margin-top-x2 temp_min data dark-color medium-font text-normal">2134</h5>
+          <!--<img src="./Images/low.png" alt="Temp. icon" class="icon temp-icon" height="30px" width="30px">-->
+          <i class="sec-color cold-color round em-width center-text fas fa-thermometer-empty"></i> 
+          <!--<h6 class="title margin-top-x1-25 temp-title sec-dark-color">Min.</h6>-->
+          <h5 class="no-margin-bottom margin-top-x2 temp_min data dark-color medium-font text-normal">2134</h5>
         </div>
       </div>
       <button id="menu" class="menu mobile margin-bottom-x2 auto-margin-sides margin-top">SEARCH</button>
     </section>
 
 <!--Icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon"> www.flaticon.com</a>-->
-    <script type="module" src="index.js"></script>
+    <script type="module" src="./js/index.js"></script>
   </body>
 </html>
