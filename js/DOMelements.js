@@ -13,8 +13,6 @@ button.addEventListener("click", () => {
   // city name without the space in front of the name
   let nameOfCountry = infoArray[infoArray.length - 1].replace(" ", "");
   let countryCode = getCountryCode(nameOfCountry);
-  console.log("raw search query", searchQuery);
-  console.log("formatted query to use", nameOfCity, nameOfCountry, countryCode);
   let query = `${nameOfCity},${countryCode}`;
 
   let units = getUnit();
@@ -50,7 +48,6 @@ unitsButtons.forEach((input) =>
 
 // this should be refactored to do maths on the unit data as opposed to fetching new data
 function switchUnits(e) {
-  console.log(e.target.value);
   let searchQuery = document.querySelector("#cityNameInput").value;
   let units = e.target.value;
   if (searchQuery !== "") {
@@ -61,7 +58,6 @@ function switchUnits(e) {
 }
 
 function menuToggle(menuID) {
-  console.info("Inside closeMenu");
   const menu = document.querySelector(`#${menuID}`);
   menu.classList.toggle("visible");
   menu.classList.toggle("hidden");

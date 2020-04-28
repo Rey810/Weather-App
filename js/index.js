@@ -22,10 +22,6 @@ import {
 import { getCountryName } from "./countryCode.js";
 import menuControl from "./menuControl.js";
 
-// hit the weather api
-const API_KEY = "4341bfb4d351de693ffba36fee82fc49";
-const flickr_API_KEY = "1951625a765ba51695f0fe80993edb42";
-
 // add functionality to menu
 menuControl("close", "menu", "menu-overlay");
 
@@ -38,11 +34,19 @@ window.onload = () => {
 
 export async function fetchFlickrPhoto(cityName) {
   try {
+    // the js object containing the city name
+    const cityData = { cityName: `${cityName}` };
     const responseData = await fetch(
-      `https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=${flickr_API_KEY}&tags=${cityName},iconic&tag_mode=all&sort=interestingness-desc&safe_search=1&content_type=1&media=photos&per_page=5&page=1&format=json&nojsoncallback=1`
+      "https://cloudfare-flickr810.reythedev.workers.dev",
+      {
+        method: "POST",
+        //stringify takes a JS object and transforms it into a json string
+        body: JSON.stringify(cityData),
+      }
     );
+    console.log(responseData);
     const jsonData = await responseData.json();
-    console.log(jsonData);
+    console.log("JSON photo data", jsonData);
     if (responseData.ok == true && jsonData.stat != "fail") {
       const imageURL = formatURL(jsonData);
       setBackgroundImage(imageURL);
@@ -71,9 +75,20 @@ function placeholderBackground() {
 
 export async function fetchWeatherAsync(queryName, units) {
   // returns a resolved promise and sets it to response
+  const weatherRequest = {
+    cityName: `${queryName}`,
+    units: `${units}`,
+  };
+
   const response = await fetch(
-    `https://api.openweathermap.org/data/2.5/weather?q=${queryName}&appid=${API_KEY}&units=${units}`
+    "https://cloudfare-weather810.reythedev.workers.dev",
+    {
+      method: "POST",
+      //stringify takes a JS object and transforms it into a json string
+      body: JSON.stringify(weatherRequest),
+    }
   );
+
   // responseDetails is declared here so that it can be passed onto useData
   // or inspected for error messages
   // It takes the response stream and parses it as json
@@ -90,7 +105,6 @@ export async function fetchWeatherAsync(queryName, units) {
       throw new Error(responseDetails.message);
     }
   } catch (error) {
-    console.log("I caught the error!");
     handleError(error);
     return error;
   }
@@ -99,7 +113,6 @@ export async function fetchWeatherAsync(queryName, units) {
 function destructureData(response) {
   // the response data is destructured into variables
   // variables then saved in cityName, weather and temperature objects
-  console.log(response);
 
   // unix time stamp from response data
   let { dt: unixDate } = response;
@@ -109,8 +122,6 @@ function destructureData(response) {
   let { name: cityName } = response;
   let { country: countryCode } = response.sys;
   let countryName = getCountryName(countryCode);
-  console.log("country", country);
-
   // destructure response data into weather variables
   let {
     description,
@@ -159,21 +170,13 @@ function populateDOM(weatherObjects) {
     weatherSummary,
     sunInfo,
   } = weatherObjects;
-  console.log(cityName, tempObj, weatherSummary);
+
   // city name
   name.innerHTML = cityName;
   try {
-    console.log(typeof countryName);
     country.innerHTML = countryName;
   } catch (err) {
     console.log(err);
-  }
-
-  // set background-colour according to weather name
-  try {
-    hero.style.backgroundColor = "hsla(0, 0%, 0%, 0.6)";
-  } catch (error) {
-    console.log(error);
   }
 
   // weather summary
@@ -199,7 +202,6 @@ function populateDOM(weatherObjects) {
 }
 
 function handleError(err) {
-  console.log(err);
   alert("City not found");
 }
 
@@ -232,13 +234,11 @@ function formatTime(sunriseUnix, sunsetUnix) {
 
   const sunriseMilliseconds = sunriseUnix * 1000;
   const sunriseTime = new Date(sunriseMilliseconds);
-  console.log("sunrise time", sunriseTime);
   const sunrise = sunriseTime.toLocaleTimeString("en-za", options);
 
   const sunsetMilliseconds = sunsetUnix * 1000;
   const sunsetTime = new Date(sunsetMilliseconds);
   const sunset = sunsetTime.toLocaleTimeString("en-za", options);
-  console.log("sunrise", sunrise, "sunset", sunset);
   return { sunrise, sunset };
 }
 
@@ -257,7 +257,6 @@ function setBackgroundImage(url) {
     toggleLoader();
   };
   heroImgContainer.style.backgroundImage = "none";
-  console.log("Im inside the backgroundImage function", img.src);
   heroImgContainer.style.backgroundImage = `url(${img.src}`;
 }
 
