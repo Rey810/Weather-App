@@ -39,12 +39,13 @@ export async function fetchFlickrPhoto(cityName) {
     const responseData = await fetch(
       "https://cloudfare-flickr810.reythedev.workers.dev",
       {
+        mode: "cors",
         method: "POST",
         //stringify takes a JS object and transforms it into a json string
         body: JSON.stringify(cityData),
       }
     );
-    console.log(responseData);
+    console.log("flickr-response", responseData);
     const jsonData = await responseData.json();
     console.log("JSON photo data", jsonData);
     if (responseData.ok == true && jsonData.stat != "fail") {
