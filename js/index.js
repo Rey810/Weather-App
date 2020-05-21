@@ -272,6 +272,6 @@ export function toggleLoader() {
 // PLACES AUTOCOMPLETE
 export let placesAutocomplete = places({
   appId: "plD80CGT2YTX",
-  apiKey: "ea3585946e68c7bffe43e74f97d73b0c",
+  apiKey: "b7ceba1bc9a11872d4a8202f6c3b9698",
   container: document.querySelector("#cityNameInput"),
 }).configure({ type: "city" });
