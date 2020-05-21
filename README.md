@@ -1,5 +1,10 @@
 # Odin's Forecast a.k.a A Weather App 
 
+## Demo
+
+![Odin's Forecast Demo](demo/weather-demo.gif)
+
+
 ## What?
 * This is a weather app built in Javascript, HTML, and CSS (no frameworks).
 * Weather stats are fetched from [openweathermap](openweathermap.org).
