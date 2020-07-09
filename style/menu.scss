@@ -5,13 +5,12 @@
 ///////////////
 // MENU button
 #menu {
+  font-size: 1.4rem;
   grid-row: 2;
   z-index: 2;
   bottom: 0;
-  width: 50%;
-  border-radius: 2em;
-  padding: 1em;
-  background-color: darken($search-color, 10%);
+  width: auto;
+  background-color: $search-color;
   cursor: pointer;
   &:hover {
     background-color: lighten($search-color, 10%);
@@ -45,6 +44,7 @@
   }
 
   #close {
+    cursor: pointer;
     grid-area: menuClose;
     font-size: 1.6em;
     height: max-content;
@@ -61,7 +61,7 @@
   #menu-social {
     grid-area: menuSocial;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
     align-items: flex-end;
   }
   i {
@@ -165,4 +165,12 @@ input[type="radio"].toggle {
 
 .cityNameInput {
   color: $placeholder-text-color;
+}
+
+#citySearchButton {
+  font-size: 1rem;
+  background-color: $search-color;
+  &:hover {
+    background-color: lighten($search-color, 10%);
+  }
 }

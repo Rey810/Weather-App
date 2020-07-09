@@ -63,7 +63,7 @@ header {
 }
 
 .cityName {
-  padding-right: 0.3em;
+  padding-right: 0.3rem;
 }
 
 .big-temp-display {
@@ -89,21 +89,24 @@ header {
 
 .footer-container {
   grid-row: 2;
-  background-color: $aux-color;
+  background-color: $dark-color;
   display: grid;
   grid-template-rows: 2fr auto;
   i {
     padding: 0.6em;
-    font-size: 1.2em;
+    font-size: 1.2rem;
   }
 }
 
 .footer-info-container {
-  grid-row: 1;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  display: flex;
+  justify-content: space-evenly;
   img {
     opacity: 60%;
+  }
+
+  h5 {
+    color: $main-color;
   }
 }
 
@@ -195,4 +198,52 @@ header {
 }
 .loaded #loader-wrapper {
   visibility: hidden;
+}
+
+/*/////////////////////*/
+/*//MEDIA QUERIES/////*/
+/*/////////////////////*/
+@media only screen and (min-width: 767px) {
+  html {
+    font-size: 18px;
+  }
+
+  h1 {
+    font-size: 4rem;
+  }
+
+  h4 {
+    font-size: 1.4rem;
+  }
+
+  h5 {
+    font-size: 1.2rem;
+  }
+
+  .big-temp-display {
+    margin-left: auto;
+    padding-right: 2rem;
+  }
+
+  .footer-info-container {
+    justify-content: center;
+    .footer-item {
+      margin: 0 2rem;
+    }
+
+    h5 {
+      font-size: 1.5rem;
+      margin-top: 1rem;
+    }
+  }
+}
+
+@media only screen and (min-width: 1027px) {
+  html {
+    font-size: 20px;
+  }
+
+  .footer-info-container {
+    margin: 2rem 0 1rem 0;
+  }
 }

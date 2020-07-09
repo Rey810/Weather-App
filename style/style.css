@@ -21,15 +21,12 @@
 }
 
 button {
-  padding: 1em;
+  cursor: pointer;
+  padding: 1em 6em;
+  border-radius: 5px;
   font-weight: 700;
   border: none;
   color: white;
-  background-color: #4285f4;
-}
-
-button:hover {
-  background-color: #5a95f5;
 }
 
 .round {
@@ -37,8 +34,8 @@ button:hover {
 }
 
 .input-lrg {
-  padding: 1em 0.5em;
-  font-size: 1em;
+  padding: 1.5rem 0 1.5rem 1.5rem;
+  font-size: 1rem;
   font-weight: 500;
   text-transform: uppercase;
 }
@@ -204,7 +201,7 @@ button:hover {
 }
 
 .dark-color {
-  color: rgba(0, 0, 0, 0.7);
+  color: rgba(0, 0, 0, 0.9);
 }
 
 .sec-dark-color {
@@ -220,7 +217,7 @@ button:hover {
 }
 
 .hot-color {
-  background-color: #eb6827;
+  background-color: #cb2e2e;
 }
 
 .cold-color {
@@ -303,19 +300,18 @@ button:hover {
 
 /*LOADER*/
 #menu {
+  font-size: 1.4rem;
   -ms-grid-row: 2;
   grid-row: 2;
   z-index: 2;
   bottom: 0;
-  width: 50%;
-  border-radius: 2em;
-  padding: 1em;
-  background-color: rgba(0, 0, 0, 0.8);
+  width: auto;
+  background-color: #159257;
   cursor: pointer;
 }
 
 #menu:hover {
-  background-color: rgba(51, 51, 51, 0.8);
+  background-color: #1bbf72;
 }
 
 #menu-overlay {
@@ -326,9 +322,10 @@ button:hover {
   z-index: 3;
   width: 100%;
   height: 100%;
+  min-height: 100vh;
   display: -ms-grid;
   display: grid;
-  color: rgba(0, 0, 0, 0.7);
+  color: rgba(0, 0, 0, 0.9);
   text-align: center;
       grid-template-areas: "... menuHeader menuHeader menuClose" "... menuOptions menuOptions ..." "... menuOptions menuOptions ..." "... menuOptions menuOptions ..." "... menuSocial menuSocial ..." "madeBy  madeBy  madeBy  madeBy";
   -ms-grid-columns: 1fr auto auto 1fr;
@@ -345,6 +342,7 @@ button:hover {
 }
 
 #menu-overlay #close {
+  cursor: pointer;
   -ms-grid-row: 1;
   -ms-grid-column: 4;
   grid-area: menuClose;
@@ -376,9 +374,9 @@ button:hover {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
   -webkit-box-align: end;
       -ms-flex-align: end;
           align-items: flex-end;
@@ -386,11 +384,11 @@ button:hover {
 
 #menu-overlay i {
   font-size: 1.6em;
-  color: rgba(0, 0, 0, 0.7);
+  color: rgba(0, 0, 0, 0.9);
 }
 
 #menu-overlay i:hover {
-  color: rgba(26, 26, 26, 0.7);
+  color: rgba(26, 26, 26, 0.9);
 }
 
 #menu-overlay #made-by {
@@ -502,6 +500,15 @@ input[type="radio"].toggle:checked + label:after {
   color: rgba(0, 0, 0, 0.69);
 }
 
+#citySearchButton {
+  font-size: 1rem;
+  background-color: #159257;
+}
+
+#citySearchButton:hover {
+  background-color: #1bbf72;
+}
+
 /*LOADER*/
 html {
   font-family: "Montserrat", Arial, Helvetica, sans-serif;
@@ -571,7 +578,7 @@ header {
 }
 
 .cityName {
-  padding-right: 0.3em;
+  padding-right: 0.3rem;
 }
 
 .big-temp-display {
@@ -603,7 +610,7 @@ header {
 .footer-container {
   -ms-grid-row: 2;
   grid-row: 2;
-  background-color: white;
+  background-color: rgba(0, 0, 0, 0.9);
   display: -ms-grid;
   display: grid;
   -ms-grid-rows: 2fr auto;
@@ -612,20 +619,24 @@ header {
 
 .footer-container i {
   padding: 0.6em;
-  font-size: 1.2em;
+  font-size: 1.2rem;
 }
 
 .footer-info-container {
-  -ms-grid-row: 1;
-  grid-row: 1;
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-columns: (1fr)[4];
-      grid-template-columns: repeat(4, 1fr);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
 }
 
 .footer-info-container img {
   opacity: 60%;
+}
+
+.footer-info-container h5 {
+  color: rgba(255, 255, 255, 0.9);
 }
 
 .temp-title {
@@ -743,5 +754,48 @@ header {
 
 .loaded #loader-wrapper {
   visibility: hidden;
+}
+
+/*/////////////////////*/
+/*//MEDIA QUERIES/////*/
+/*/////////////////////*/
+@media only screen and (min-width: 767px) {
+  html {
+    font-size: 18px;
+  }
+  h1 {
+    font-size: 4rem;
+  }
+  h4 {
+    font-size: 1.4rem;
+  }
+  h5 {
+    font-size: 1.2rem;
+  }
+  .big-temp-display {
+    margin-left: auto;
+    padding-right: 2rem;
+  }
+  .footer-info-container {
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  .footer-info-container .footer-item {
+    margin: 0 2rem;
+  }
+  .footer-info-container h5 {
+    font-size: 1.5rem;
+    margin-top: 1rem;
+  }
+}
+
+@media only screen and (min-width: 1027px) {
+  html {
+    font-size: 20px;
+  }
+  .footer-info-container {
+    margin: 2rem 0 1rem 0;
+  }
 }
 /*# sourceMappingURL=style.css.map */

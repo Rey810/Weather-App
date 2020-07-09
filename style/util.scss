@@ -14,15 +14,12 @@
 }
 
 button {
-  padding: 1em;
+  cursor: pointer;
+  padding: 1em 6em;
+  border-radius: 5px;
   font-weight: 700;
   border: none;
   color: $aux-color;
-  background-color: $button-color;
-
-  &:hover {
-    background-color: lighten($button-color, 5%);
-  }
 }
 
 .round {
@@ -30,8 +27,8 @@ button {
 }
 
 .input-lrg {
-  padding: 1em 0.5em;
-  font-size: 1em;
+  padding: 1.5rem 0 1.5rem 1.5rem;
+  font-size: 1rem;
   font-weight: 500;
   text-transform: uppercase;
 }

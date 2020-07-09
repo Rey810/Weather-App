@@ -12,8 +12,6 @@ import {
   temp,
   tempMax,
   tempMin,
-  sunrise,
-  sunset,
   hero,
   heroImgContainer,
   dataDivs,
@@ -157,20 +155,14 @@ function destructureData(response) {
   };
 
   // sunrise and sunset data
-  let { sunrise: sunriseUnix, sunset: sunsetUnix } = response.sys;
-  let sunInfo = formatTime(sunriseUnix, sunsetUnix);
+  // let { sunrise: sunriseUnix, sunset: sunsetUnix } = response.sys;
+  // let sunInfo = formatTime(sunriseUnix, sunsetUnix);
 
-  return { cityName, countryName, weatherSummary, tempObj, sunInfo };
+  return { cityName, countryName, weatherSummary, tempObj };
 }
 
 function populateDOM(weatherObjects) {
-  let {
-    cityName,
-    countryName,
-    tempObj,
-    weatherSummary,
-    sunInfo,
-  } = weatherObjects;
+  let { cityName, countryName, tempObj, weatherSummary } = weatherObjects;
 
   // city name
   name.innerHTML = cityName;
@@ -198,8 +190,8 @@ function populateDOM(weatherObjects) {
   tempMin.innerHTML = `${Math.floor(tempObj.temp_min)}&deg;`;
 
   // sun info
-  sunrise.innerHTML = sunInfo.sunrise;
-  sunset.innerHTML = sunInfo.sunset;
+  // sunrise.innerHTML = sunInfo.sunrise;
+  // sunset.innerHTML = sunInfo.sunset;
 }
 
 function handleError(err) {
@@ -230,18 +222,18 @@ function formatDate(unixDate) {
   return finalDate;
 }
 
-function formatTime(sunriseUnix, sunsetUnix) {
-  const options = { hour: "numeric", minute: "numeric" };
+// function formatTime(sunriseUnix, sunsetUnix) {
+//   const options = { hour: "numeric", minute: "numeric" };
 
-  const sunriseMilliseconds = sunriseUnix * 1000;
-  const sunriseTime = new Date(sunriseMilliseconds);
-  const sunrise = sunriseTime.toLocaleTimeString("en-za", options);
+//   const sunriseMilliseconds = sunriseUnix * 1000;
+//   const sunriseTime = new Date(sunriseMilliseconds);
+//   const sunrise = sunriseTime.toLocaleTimeString("en-za", options);
 
-  const sunsetMilliseconds = sunsetUnix * 1000;
-  const sunsetTime = new Date(sunsetMilliseconds);
-  const sunset = sunsetTime.toLocaleTimeString("en-za", options);
-  return { sunrise, sunset };
-}
+//   const sunsetMilliseconds = sunsetUnix * 1000;
+//   const sunsetTime = new Date(sunsetMilliseconds);
+//   const sunset = sunsetTime.toLocaleTimeString("en-za", options);
+//   return { sunrise, sunset };
+// }
 
 function formatURL(jsonData) {
   const photoArrayLength = jsonData.photos.photo.length;

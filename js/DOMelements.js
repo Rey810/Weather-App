@@ -76,8 +76,8 @@ export let wind = document.querySelector(".wind");
 export let temp = document.querySelector(".temp");
 export let tempMax = document.querySelector(".temp_max");
 export let tempMin = document.querySelector(".temp_min");
-export let sunrise = document.querySelector(".sunrise");
-export let sunset = document.querySelector(".sunset");
+// export let sunrise = document.querySelector(".sunrise");
+// export let sunset = document.querySelector(".sunset");
 
 // hero container
 export let hero = document.querySelector(".hero-container");
