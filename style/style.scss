@@ -236,14 +236,14 @@ header {
       margin-top: 1rem;
     }
   }
+
+  .footer-info-container {
+    margin: 2rem 0 1rem 0;
+  }
 }
 
 @media only screen and (min-width: 1027px) {
   html {
     font-size: 20px;
-  }
-
-  .footer-info-container {
-    margin: 2rem 0 1rem 0;
   }
 }

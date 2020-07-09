@@ -300,7 +300,7 @@ button {
 
 /*LOADER*/
 #menu {
-  font-size: 1.4rem;
+  font-size: 1.2rem;
   -ms-grid-row: 2;
   grid-row: 2;
   z-index: 2;
@@ -337,8 +337,8 @@ button {
   -ms-grid-column: 2;
   -ms-grid-column-span: 2;
   grid-area: menuHeader;
-  margin-top: 1em;
-  font-size: 3em;
+  margin-top: 2rem;
+  font-size: 3rem;
 }
 
 #menu-overlay #close {
@@ -346,11 +346,11 @@ button {
   -ms-grid-row: 1;
   -ms-grid-column: 4;
   grid-area: menuClose;
-  font-size: 1.6em;
+  font-size: 1.6rem;
   height: -webkit-max-content;
   height: -moz-max-content;
   height: max-content;
-  margin: 1em;
+  margin: 1rem 1rem 0 0;
 }
 
 #menu-overlay #close:hover {
@@ -407,8 +407,8 @@ button {
 }
 
 #menu-overlay #made-by i {
-  font-size: 1em !important;
-  margin-top: 0.1em;
+  font-size: 1rem !important;
+  margin-top: 0.1rem;
 }
 
 #menu-overlay #made-by i:hover {
@@ -788,14 +788,14 @@ header {
     font-size: 1.5rem;
     margin-top: 1rem;
   }
+  .footer-info-container {
+    margin: 2rem 0 1rem 0;
+  }
 }
 
 @media only screen and (min-width: 1027px) {
   html {
     font-size: 20px;
-  }
-  .footer-info-container {
-    margin: 2rem 0 1rem 0;
   }
 }
 /*# sourceMappingURL=style.css.map */
