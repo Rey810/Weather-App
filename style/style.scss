@@ -100,12 +100,16 @@ header {
 
 .footer-info-container {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: center;
+  .footer-item {
+    margin: 0 2rem;
+  }
   img {
     opacity: 60%;
   }
 
   h5 {
+    font-size: 1.2rem;
     color: $main-color;
   }
 }
@@ -216,25 +220,14 @@ header {
     font-size: 1.4rem;
   }
 
-  h5 {
-    font-size: 1.2rem;
-  }
-
   .big-temp-display {
     margin-left: auto;
     padding-right: 2rem;
   }
 
-  .footer-info-container {
-    justify-content: center;
-    .footer-item {
-      margin: 0 2rem;
-    }
-
-    h5 {
-      font-size: 1.5rem;
-      margin-top: 1rem;
-    }
+  h5 {
+    font-size: 1.5rem;
+    margin-top: 1rem;
   }
 
   .footer-info-container {

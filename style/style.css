@@ -315,8 +315,8 @@ button {
 }
 
 #menu-overlay {
-  -webkit-box-shadow: inset 0 0 0 100vw white;
-          box-shadow: inset 0 0 0 100vw white;
+  -webkit-box-shadow: inset 0 0 0 100vw #f8f8f8;
+          box-shadow: inset 0 0 0 100vw #f8f8f8;
   position: fixed;
   top: 0;
   z-index: 3;
@@ -350,7 +350,7 @@ button {
   height: -webkit-max-content;
   height: -moz-max-content;
   height: max-content;
-  margin: 1rem 1rem 0 0;
+  margin: 2rem 1rem 0 0;
 }
 
 #menu-overlay #close:hover {
@@ -626,9 +626,13 @@ header {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: space-evenly;
-      -ms-flex-pack: space-evenly;
-          justify-content: space-evenly;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.footer-info-container .footer-item {
+  margin: 0 2rem;
 }
 
 .footer-info-container img {
@@ -636,6 +640,7 @@ header {
 }
 
 .footer-info-container h5 {
+  font-size: 1.2rem;
   color: rgba(255, 255, 255, 0.9);
 }
 
@@ -769,22 +774,11 @@ header {
   h4 {
     font-size: 1.4rem;
   }
-  h5 {
-    font-size: 1.2rem;
-  }
   .big-temp-display {
     margin-left: auto;
     padding-right: 2rem;
   }
-  .footer-info-container {
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-  }
-  .footer-info-container .footer-item {
-    margin: 0 2rem;
-  }
-  .footer-info-container h5 {
+  h5 {
     font-size: 1.5rem;
     margin-top: 1rem;
   }
