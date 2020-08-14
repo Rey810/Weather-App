@@ -13,8 +13,8 @@
     <script type="module" src="./js/index.js" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/places.js@1.18.2" async></script>
   </head>
-  <body class="no-overflow-x">
-
+  <body class="">
+<div class="content-wrapper no-overflow-x">
 <div id='loader-wrapper'>
     <div id='loader'>
         <h1 class='loaderText'>Calling Weatherman<span class='loaderPeriod'>.</span></h1>
@@ -34,19 +34,21 @@
       <div id="menu-options" class="stack-children flex-space-even">
         <div class="citySearchContainer stack-children">        
           <input type="search" id="cityNameInput" class= "input-lrg" placeholder="Cape Town"></input>
-          <button id="citySearchButton" class='margin-top-bottom btn-shadow'>GET WEATHER</button>
-        </div>
-        <div class="unitsSwitchContainer margin-top-bottom-x2">
+           <div class="unitsSwitchContainer margin-top-bottom-x2">
           <input id="toggle-on" class="toggle toggle-left metric" name="toggle" value="metric" type="radio" checked>
           <label for="toggle-on" class="btn">&deg;C</label>
           <input id="toggle-off" class="toggle toggle-right imperial" name="toggle" value="imperial" type="radio">
           <label for="toggle-off" class="btn">&deg;F</label>
         </div>
+          <button id="citySearchButton" class='margin-top-bottom btn-shadow'>GET WEATHER</button>
+        </div>
+       
       </div>
 
       <div id="menu-social">
         <a href="https://twitter.com/ReyTheDev"><i class="fab fa-twitter"></i></a>
         <a href="https://github.com/Rey810/Weather-App"><i class="fab fa-github"></i></a>
+        <a href="https://www.linkedin.com/in/rey810/"><i class="fab fa-linkedin"></i></a>
       </div>
 
       <div id="made-by" class="made-by-container center italic-font">
@@ -57,7 +59,7 @@
       </div>
     </section> 
 
-    <section class="hero-container">
+  <section class="hero-container">
       <div class="hero-img-container center">
       </div>
       <div class="summary margin-top-x3">
@@ -70,55 +72,39 @@
         </header>
         <div class="date">
         </div>
-        <div class="big-temp-display center margin-left-x2">
-          <div class="temp data text-xxlrg main-color xtra-light-font">20&deg;</div>
+        <div class="big-temp-display center">
+          <div class="temp data text-huge main-color xtra-light-font">20&deg;</div>
+          <div class="feels-like main-color">Feels like: <span class="feels_like data">15&deg;</span></div>
         </div>
-
-        <div class="summary-details stack-children center-vertical margin-left">
-          <div class="description-container grid-col-2">
-            <img src="http://openweathermap.org/img/wn/01n.png" alt="Weather Image" class="weather-icon center-row image-white-filter-shadow" height="25px" width="25px"><h4 class="description data no-margin center-left sec-color light-font">Sunny</h4>
-          </div>
-          <div class="wind-container margin-top grid-col-2">
-            <i class="fas fa-wind icon"></i><h4 class="wind data  no-margin center-left sec-color light-font" >4 km/h</h4>
-          </div>
-          <div class="humidity-container margin-top grid-col-2">
-            <i class="fas fa-tint icon"></i><h4 class="humidity data no-margin center-left sec-color light-font">50%</h4>
-          </div>
-        </div>
-        
       </div>
 
       
-    </section>
+  </section>
 
-    <section class="footer-container">
-      <div class="footer-info-container margin-sides-x2 center">
-        <!-- <div class="footer-item center column no-margin-bottom">
-          <i class="sec-color round day-color far fa-sun"></i>
-          <h5 class="no-margin-bottom margin-top-x2 sunrise data medium-font text-normal">2134</h5>
+  <section class="footer-container">
+        <div class="svg-wrapper">
+          <svg id="menu" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" width="40px" height="40px"><path d="M0 0h24v24H0z" fill="none"/><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
+        </svg>
+      </div>
+      <div class="footer-info-container center">
+        <div class="info-container">
+          <div class="reading humidity data">78%</div>
+          <div class="reading-label">Humidity</div>
         </div>
-        <div class="footer-item center column no-margin-bottom">
-          <i class="sec-color round night-color far fa-moon"></i>
-          <h5 class="no-margin-bottom margin-top-x2 sunset data medium-font text-normal">2134</h5>
-        </div> -->
-        <div class="footer-item center column no-margin-bottom">
-          <!--<img src="./Images/high.png" alt="Temp. icon" class="icon temp-icon" height="30px" width="30px"> -->
-          <i class="sec-color hot-color round em-width center-text fas fa-thermometer-full"></i>
-          <!--<h6 class="title margin-top-x1-25 temp-title sec">Max.</h6>-->
-          <h5 class="no-margin-bottom margin-top-x2 temp_max data medium-font">2134</h5>
+        <div class="info-container">
+          <div class="reading visibility data">10km</div>
+          <div class="reading-label">Visibility</div>
         </div>
-        <div class="footer-item center column no-margin-bottom">
-          <!--<img src="./Images/low.png" alt="Temp. icon" class="icon temp-icon" height="30px" width="30px">-->
-          <i class="sec-color cold-color round em-width center-text fas fa-thermometer-empty"></i> 
-          <!--<h6 class="title margin-top-x1-25 temp-title sec">Min.</h6>-->
-          <h5 class="no-margin-bottom margin-top-x2 temp_min data medium-font">2134</h5>
+        <div class="info-container">
+          <div class="reading wind data">4km/h</div>
+          <div class="reading-label">Wind</div>
         </div>
       </div>
-      <button id="menu" class="menu mobile margin-bottom-x2 auto-margin-sides margin-top btn-shadow">SEARCH</button>
-    </section>
+
+  </section>
 
 <!--Icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon"> www.flaticon.com</a>-->
     
-    
+    </div>
   </body>
 </html>

@@ -3,20 +3,32 @@
 html {
   font-family: "Montserrat", Arial, Helvetica, sans-serif;
   font-size: 16px;
+  background-color: #dcdcdc;
 }
 
 body {
-  //position: fixed;
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.content-wrapper {
   display: grid;
-  width: auto;
+  width: 100%;
   margin: 0;
   min-height: 100vh;
   max-height: 100vh;
-  grid-template-rows: 5fr 2fr;
+  grid-template-rows: 5fr auto;
 }
 
 a {
   display: block;
+}
+
+i {
+  opacity: 0.75;
 }
 
 h6 {
@@ -24,11 +36,15 @@ h6 {
 }
 
 .hero-container {
-  grid-row: 1;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
   display: grid;
   height: 100%;
   grid-template-rows: 1fr 1fr;
-  background-color: hsla(0, 0%, 5%, 0.6);
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.1) 5%, black 110%);
   background-blend-mode: soft-light;
   .temp,
   h4,
@@ -47,7 +63,6 @@ h6 {
   background-image: url(../Images/cape-town-900.jpg);
   background-size: cover;
   background-position: center;
-  filter: contrast(1.2) grayscale(85%);
 }
 
 .summary {
@@ -67,8 +82,19 @@ header {
 }
 
 .big-temp-display {
-  grid-column: 1;
+  display: flex;
+  flex-direction: column;
+  grid-column-start: 1;
+  grid-column-end: 3;
   grid-row: 2;
+}
+
+.temp {
+  line-height: 1;
+}
+
+.feels-like {
+  font-size: 1.25rem;
 }
 
 .summary-details {
@@ -88,29 +114,52 @@ header {
 }
 
 .footer-container {
+  margin: 0 3rem 3rem 3rem;
+  z-index: 1;
   grid-row: 2;
-  background-color: $dark-color;
-  display: grid;
-  grid-template-rows: 2fr auto;
-  i {
+  margin-bottom: i {
     padding: 0.6em;
     font-size: 1.2rem;
   }
 }
 
-.footer-info-container {
+.svg-wrapper {
   display: flex;
   justify-content: center;
-  .footer-item {
-    margin: 0 2rem;
-  }
-  img {
-    opacity: 60%;
-  }
+}
 
-  h5 {
-    font-size: 1.2rem;
-    color: $main-color;
+.footer-info-container {
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  .info-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    .reading {
+      font-size: 1.25rem;
+      text-align: center;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+    .reading-label {
+      font-size: 0.9rem;
+      font-weight: 300;
+      text-align: center;
+      opacity: 0.9;
+    }
+  }
+}
+
+.footer-info-container {
+  .info-container:not(:first-child)::before {
+    content: "";
+    height: 1rem;
+    position: absolute;
+    width: 1px;
+    background-color: rgb(255, 255, 255);
+    opacity: 0.85;
   }
 }
 
@@ -208,35 +257,34 @@ header {
 /*//MEDIA QUERIES/////*/
 /*/////////////////////*/
 @media only screen and (min-width: 767px) {
-  html {
-    font-size: 18px;
+  // keep screen mobile-like
+  .content-wrapper {
+    width: 480px;
+    min-height: 700px;
+    max-height: 700px;
+    position: relative;
+    margin: 0 auto;
+    border-radius: 2rem;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.7),
+      0 4px 6px -2px rgba(0, 0, 0, 0.05);
   }
-
-  h1 {
-    font-size: 4rem;
-  }
-
-  h4 {
-    font-size: 1.4rem;
-  }
-
-  .big-temp-display {
-    margin-left: auto;
-    padding-right: 2rem;
-  }
-
-  h5 {
-    font-size: 1.5rem;
-    margin-top: 1rem;
-  }
-
   .footer-info-container {
-    margin: 2rem 0 1rem 0;
+    margin: 0 0 1rem 0;
   }
 }
 
-@media only screen and (min-width: 1027px) {
-  html {
-    font-size: 20px;
+@media only screen and (min-width: 1280px) {
+  .content-wrapper {
+    min-height: 95%;
+    max-height: 95%;
+    width: 448px;
+  }
+}
+
+@media only screen and (min-width: 1400px) {
+  .content-wrapper {
+    width: 480px;
+    min-height: 80%;
+    max-height: 80%;
   }
 }

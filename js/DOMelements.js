@@ -72,10 +72,9 @@ export let weathName = document.querySelector(".weatherName");
 export let feelsLike = document.querySelector(".feels_like");
 export let humid = document.querySelector(".humidity");
 export let press = document.querySelector(".pressure");
+export let vis = document.querySelector(".visibility");
 export let wind = document.querySelector(".wind");
 export let temp = document.querySelector(".temp");
-export let tempMax = document.querySelector(".temp_max");
-export let tempMin = document.querySelector(".temp_min");
 // export let sunrise = document.querySelector(".sunrise");
 // export let sunset = document.querySelector(".sunset");
 

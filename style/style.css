@@ -244,6 +244,10 @@ button {
   font-size: 6em;
 }
 
+.text-huge {
+  font-size: 9rem;
+}
+
 .light-font {
   font-weight: 400;
 }
@@ -300,29 +304,23 @@ button {
 
 /*LOADER*/
 #menu {
-  font-size: 1.2rem;
-  -ms-grid-row: 2;
-  grid-row: 2;
-  z-index: 2;
-  bottom: 0;
-  width: auto;
-  background-color: #159257;
   cursor: pointer;
+  margin-bottom: 2rem;
 }
 
-#menu:hover {
-  background-color: #1bbf72;
+#menu:hover svg {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
 }
 
 #menu-overlay {
   -webkit-box-shadow: inset 0 0 0 100vw #f8f8f8;
           box-shadow: inset 0 0 0 100vw #f8f8f8;
-  position: fixed;
+  position: absolute;
   top: 0;
   z-index: 3;
   width: 100%;
   height: 100%;
-  min-height: 100vh;
   display: -ms-grid;
   display: grid;
   color: rgba(0, 0, 0, 0.9);
@@ -339,6 +337,7 @@ button {
   grid-area: menuHeader;
   margin-top: 2rem;
   font-size: 3rem;
+  opacity: 0.75;
 }
 
 #menu-overlay #close {
@@ -399,11 +398,11 @@ button {
 }
 
 #menu-overlay #made-by a {
-  color: #1266f1;
+  color: #159257;
 }
 
 #menu-overlay #made-by a:hover {
-  color: #4285f4;
+  color: #1bbf72;
 }
 
 #menu-overlay #made-by i {
@@ -435,6 +434,7 @@ button {
   text-align: center;
   -webkit-transition: background 600ms ease, color 600ms ease;
   transition: background 600ms ease, color 600ms ease;
+  width: 40%;
 }
 
 input[type="radio"].toggle {
@@ -513,21 +513,40 @@ input[type="radio"].toggle:checked + label:after {
 html {
   font-family: "Montserrat", Arial, Helvetica, sans-serif;
   font-size: 16px;
+  background-color: #dcdcdc;
 }
 
 body {
+  margin: 0;
+  height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.content-wrapper {
   display: -ms-grid;
   display: grid;
-  width: auto;
+  width: 100%;
   margin: 0;
   min-height: 100vh;
   max-height: 100vh;
-  -ms-grid-rows: 5fr 2fr;
-      grid-template-rows: 5fr 2fr;
+  -ms-grid-rows: 5fr auto;
+      grid-template-rows: 5fr auto;
 }
 
 a {
   display: block;
+}
+
+i {
+  opacity: 0.75;
 }
 
 h6 {
@@ -535,14 +554,18 @@ h6 {
 }
 
 .hero-container {
-  -ms-grid-row: 1;
-  grid-row: 1;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
   display: -ms-grid;
   display: grid;
   height: 100%;
   -ms-grid-rows: 1fr 1fr;
       grid-template-rows: 1fr 1fr;
-  background-color: rgba(13, 13, 13, 0.6);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(5%, rgba(0, 0, 0, 0.1)), color-stop(110%, black));
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.1) 5%, black 110%);
   background-blend-mode: soft-light;
 }
 
@@ -554,8 +577,6 @@ h6 {
   background-image: url(../Images/cape-town-900.jpg);
   background-size: cover;
   background-position: center;
-  -webkit-filter: contrast(1.2) grayscale(85%);
-          filter: contrast(1.2) grayscale(85%);
 }
 
 .summary {
@@ -582,10 +603,26 @@ header {
 }
 
 .big-temp-display {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   -ms-grid-column: 1;
-  grid-column: 1;
+      grid-column-start: 1;
+  grid-column-end: 3;
   -ms-grid-row: 2;
   grid-row: 2;
+}
+
+.temp {
+  line-height: 1;
+}
+
+.feels-like {
+  font-size: 1.25rem;
 }
 
 .summary-details {
@@ -608,21 +645,16 @@ header {
 }
 
 .footer-container {
+  margin: 0 3rem 3rem 3rem;
+  z-index: 1;
   -ms-grid-row: 2;
   grid-row: 2;
-  background-color: rgba(0, 0, 0, 0.9);
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-rows: 2fr auto;
-      grid-template-rows: 2fr auto;
+  margin-bottom: i;
+  margin-bottom-padding: 0.6em;
+  margin-bottom-font-size: 1.2rem;
 }
 
-.footer-container i {
-  padding: 0.6em;
-  font-size: 1.2rem;
-}
-
-.footer-info-container {
+.svg-wrapper {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -631,17 +663,51 @@ header {
           justify-content: center;
 }
 
-.footer-info-container .footer-item {
-  margin: 0 2rem;
+.footer-info-container {
+  color: white;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 
-.footer-info-container img {
-  opacity: 60%;
+.footer-info-container .info-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 100%;
 }
 
-.footer-info-container h5 {
-  font-size: 1.2rem;
-  color: rgba(255, 255, 255, 0.9);
+.footer-info-container .info-container .reading {
+  font-size: 1.25rem;
+  text-align: center;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.footer-info-container .info-container .reading-label {
+  font-size: 0.9rem;
+  font-weight: 300;
+  text-align: center;
+  opacity: 0.9;
+}
+
+.footer-info-container .info-container:not(:first-child)::before {
+  content: "";
+  height: 1rem;
+  position: absolute;
+  width: 1px;
+  background-color: white;
+  opacity: 0.85;
 }
 
 .temp-title {
@@ -765,31 +831,34 @@ header {
 /*//MEDIA QUERIES/////*/
 /*/////////////////////*/
 @media only screen and (min-width: 767px) {
-  html {
-    font-size: 18px;
-  }
-  h1 {
-    font-size: 4rem;
-  }
-  h4 {
-    font-size: 1.4rem;
-  }
-  .big-temp-display {
-    margin-left: auto;
-    padding-right: 2rem;
-  }
-  h5 {
-    font-size: 1.5rem;
-    margin-top: 1rem;
+  .content-wrapper {
+    width: 480px;
+    min-height: 700px;
+    max-height: 700px;
+    position: relative;
+    margin: 0 auto;
+    border-radius: 2rem;
+    -webkit-box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.7), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.7), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
   }
   .footer-info-container {
-    margin: 2rem 0 1rem 0;
+    margin: 0 0 1rem 0;
   }
 }
 
-@media only screen and (min-width: 1027px) {
-  html {
-    font-size: 20px;
+@media only screen and (min-width: 1280px) {
+  .content-wrapper {
+    min-height: 95%;
+    max-height: 95%;
+    width: 448px;
+  }
+}
+
+@media only screen and (min-width: 1400px) {
+  .content-wrapper {
+    width: 480px;
+    min-height: 80%;
+    max-height: 80%;
   }
 }
 /*# sourceMappingURL=style.css.map */

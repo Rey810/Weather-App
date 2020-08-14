@@ -2,16 +2,17 @@ import {
   name,
   country,
   date,
-  descr,
-  icon,
+  // descr,
+  // icon,
   //weathName,
-  //feelsLike,
+  feelsLike,
   humid,
+  vis,
   wind,
   //press,
   temp,
-  tempMax,
-  tempMin,
+  // tempMax,
+  // tempMin,
   hero,
   heroImgContainer,
   dataDivs,
@@ -104,6 +105,7 @@ export async function fetchWeatherAsync(queryName, units) {
       throw new Error(responseDetails.message);
     }
   } catch (error) {
+    console.log({ error });
     handleError(error);
     return error;
   }
@@ -114,21 +116,22 @@ function destructureData(response) {
   // variables then saved in cityName, weather and temperature objects
 
   // unix time stamp from response data
+  console.log({ response });
   let { dt: unixDate } = response;
   let weatherDate = formatDate(unixDate);
 
   // city and country
-  let { name: cityName } = response;
+  let { name: cityName, visibility } = response;
   let { country: countryCode } = response.sys;
   let countryName = getCountryName(countryCode);
   // destructure response data into weather variables
   let {
-    description,
+    // description,
     icon: weatherIcon,
     main: weatherName,
   } = response.weather[0];
 
-  let weatherSummary = { weatherDate, description, weatherIcon, weatherName };
+  let weatherSummary = { weatherDate, weatherName, visibility };
   console.log("weather summary", weatherSummary);
   //destructure response data into temp variables
   let {
@@ -157,7 +160,6 @@ function destructureData(response) {
   // sunrise and sunset data
   // let { sunrise: sunriseUnix, sunset: sunsetUnix } = response.sys;
   // let sunInfo = formatTime(sunriseUnix, sunsetUnix);
-
   return { cityName, countryName, weatherSummary, tempObj };
 }
 
@@ -174,40 +176,33 @@ function populateDOM(weatherObjects) {
 
   // weather summary
   date.innerHTML = weatherSummary.weatherDate;
-  descr.innerHTML = weatherSummary.weatherName;
+  feelsLike.innerHTML = `${tempObj.feels_like.toFixed(0)}°`;
+  // descr.innerHTML = weatherSummary.weatherName;
 
-  let darkIcon = darkenIcon(weatherSummary.weatherIcon);
-  icon.src = `http://openweathermap.org/img/wn/${darkIcon}.png`;
-  //weathName.innerHTML = weatherSummary.weatherName;
-
-  // temperature readings
-  //.innerHTML = tempObj.feels_like;
+  // data readings
+  vis.innerHTML = `${weatherSummary.visibility / 1000}km`;
   humid.innerHTML = `${tempObj.humidity} %`;
   wind.innerHTML = `${Math.floor(tempObj.wind)} km/h`;
-  //press.innerHTML = tempObj.pressure;
-  temp.innerHTML = `${Math.floor(tempObj.temp)}&deg;`;
-  tempMax.innerHTML = `${Math.floor(tempObj.temp_max)}&deg;`;
-  tempMin.innerHTML = `${Math.floor(tempObj.temp_min)}&deg;`;
-
-  // sun info
-  // sunrise.innerHTML = sunInfo.sunrise;
-  // sunset.innerHTML = sunInfo.sunset;
+  temp.innerHTML = `${Math.floor(tempObj.temp)}`;
 }
 
 function handleError(err) {
   alert("City not found");
 }
 
-function darkenIcon(iconCode) {
-  const icon = iconCode;
-  const darkenedIcon = icon.replace("d", "n");
-  return darkenedIcon;
-}
+// changes the icon code which results in a darker icon
+// function darkenIcon(iconCode) {
+//   const icon = iconCode;
+//   const darkenedIcon = icon.replace("d", "n");
+//   return darkenedIcon;
+// }
 
+// empties all data elements on page
 export function resetData(htmlDivs) {
   htmlDivs.map((div) => (div.innerHTML = ""));
 }
 
+// turns unixDate into Day/Month/Year format
 function formatDate(unixDate) {
   const milliseconds = unixDate * 1000;
   const newDate = new Date(milliseconds);
