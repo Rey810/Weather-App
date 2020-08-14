@@ -536,7 +536,6 @@ body {
   width: 100%;
   margin: 0;
   min-height: 100vh;
-  max-height: 100vh;
   -ms-grid-rows: 5fr auto;
       grid-template-rows: 5fr auto;
 }
@@ -645,7 +644,7 @@ header {
 }
 
 .footer-container {
-  margin: 0 3rem 3rem 3rem;
+  margin: 0 3rem 5rem 3rem;
   z-index: 1;
   -ms-grid-row: 2;
   grid-row: 2;
