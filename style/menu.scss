@@ -23,7 +23,7 @@
   color: $dark-color;
   text-align: center;
   grid-template-areas:
-    "... menuHeader menuHeader menuClose"
+    "... menuHeader menuHeader ..."
     "... menuOptions menuOptions ..."
     "... menuOptions menuOptions ..."
     "... menuOptions menuOptions ..."
@@ -40,10 +40,11 @@
 
   #close {
     cursor: pointer;
-    grid-area: menuClose;
     font-size: 1.6rem;
     height: max-content;
-    margin: 2rem 1rem 0 0;
+    margin: 1rem 1rem;
+    position: absolute;
+    right: 0;
     &:hover {
       transform: scale(1.1);
     }

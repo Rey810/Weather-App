@@ -325,7 +325,7 @@ button {
   display: grid;
   color: rgba(0, 0, 0, 0.9);
   text-align: center;
-      grid-template-areas: "... menuHeader menuHeader menuClose" "... menuOptions menuOptions ..." "... menuOptions menuOptions ..." "... menuOptions menuOptions ..." "... menuSocial menuSocial ..." "madeBy  madeBy  madeBy  madeBy";
+      grid-template-areas: "... menuHeader menuHeader ..." "... menuOptions menuOptions ..." "... menuOptions menuOptions ..." "... menuOptions menuOptions ..." "... menuSocial menuSocial ..." "madeBy  madeBy  madeBy  madeBy";
   -ms-grid-columns: 1fr auto auto 1fr;
       grid-template-columns: 1fr auto auto 1fr;
 }
@@ -342,14 +342,13 @@ button {
 
 #menu-overlay #close {
   cursor: pointer;
-  -ms-grid-row: 1;
-  -ms-grid-column: 4;
-  grid-area: menuClose;
   font-size: 1.6rem;
   height: -webkit-max-content;
   height: -moz-max-content;
   height: max-content;
-  margin: 2rem 1rem 0 0;
+  margin: 1rem 1rem;
+  position: absolute;
+  right: 0;
 }
 
 #menu-overlay #close:hover {
